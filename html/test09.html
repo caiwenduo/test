@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			.outer{
+				width: 1000px;height: 100%;
+			}
+			.outer .main{
+				width: 25%;height: 300px;float: left;background: goldenrod;
+			}
+			.outer .main h3{
+				font-size: 16px;background: green;width: 100px;height: 30px;
+			}
+			.outer .main h3 span{
+				font-size: 15px;font-weight: 500;line-height: 30px;
+			}
+			.outer .main .funct{
+				float: right;margin: -25px 10px 0 0;
+			}
+			.outer .main .funct img{
+				width: 20px;height: 20px;margin-right: 10px;
+			}
+			.outer .main ul li{
+				width: 80px;height: 30px;text-align: center;line-height: 30px;margin: 1px;list-style: none;
+				float: left;background: greenyellow;
+			}
+			.outer .main .bottom{
+				width: 100%;height: 32px;
+			}
+			.outer .main .bottom span{
+				width: 80px;height: 30px;margin: 1px;display: block;float: left;text-align: center;line-height: 30px;
+				background: gray;font-size: 13px;cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer"></div>
+		
+		<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+			$.ajax({
+				type:"get",
+				url:"http://192.168.0.83/dingfang/public/admin/houseno/",
+				success:function(res){
+					alert("success")
+					var res = eval(res);
+					console.log(res)
+					var str = ""
+					for(var i=0;i<res.length;i++){
+						str+='<div class="main"><h3>'+res[i].unitId+'<span>单元</span></h3><div class="funct"><img src=""><img src=""><img src=""></div><ul>'
+						var level = res[i].level;
+						for(j in level){
+							var info = level[j];
+							var houseId = info.houseId;
+							for(var k=0;k<houseId.length;k++){
+								str+='<li>'+houseId[k]+'</li>'
+							}
+						}
+						str+='</ul><div class="bottom"><span>绑定户型</span><span>绑定户型</span><span>绑定户型</span></div></div>'	
+					}
+					$(".outer").append(str)
+				},
+				error:function(){
+					alert("error");
+				}
+			});
+		</script>
+	</body>
+</html>

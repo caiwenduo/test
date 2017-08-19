@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			.outer{
+				width: 600px;height: 600px;border: 1px solid gray;
+			}
+			label{
+				display: block;width: 100px;height: 30px;background: greenyellow;text-align: center;line-height: 30px;border-radius: 5px;
+				cursor: pointer;
+			}
+			#img_file{
+				display: none;
+			}
+			.img_box{
+				width: 100px;height: 100px;position: relative;margin: 15px;float: left;
+			}
+			img{
+				width: 100px;height: 100px;
+			}
+			.del{
+				width: 20px;height: 20px;background: rgba(238,213,183,0.5);position: absolute;top: -10px;right: -10px;text-align: center;line-height: 20px;color: red;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="" method="post">
+			<label for="img_file">选择图片</label>
+			<input type="file" name="" id="img_file" value="" />
+			<input type="submit" value="上传"/ style="width: 100px;height: 30px;background: goldenrod;border-radius: 5px;">
+		</form>
+		<!--用来放图片的盒子-->
+		<div class="outer"></div>
+		<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+			function getObjectURL(file) {
+			    var url = null ; 
+			    if (window.createObjectURL!=undefined) { // basic
+			        url = window.createObjectURL(file) ;
+			    } else if (window.URL!=undefined) { // mozilla(firefox)
+			        url = window.URL.createObjectURL(file) ;
+			    } else if (window.webkitURL!=undefined) { // webkit or chrome
+			        url = window.webkitURL.createObjectURL(file) ;
+			    }
+			    return url ;
+			    
+			}
+		
+			document.getElementById("img_file").onchange = function (){
+				var strsrc=getObjectURL(this.files[0]);	//调用上面的函数
+				console.log(strsrc)//strsrc就是图片的路径地址
+				var imgBox = document.createElement("div")
+				imgBox.className = "img_box"
+				var Img = document.createElement("img")//创造图片标签
+				Img.src = strsrc;
+				imgBox.appendChild(Img)
+				var del = document.createElement("div");
+				del.className = "del";
+				del.innerHTML = "X"
+				imgBox.appendChild(del)
+				var Outer =document.getElementsByClassName("outer")[0];
+				Outer.appendChild(imgBox)//把图片标签放到创的outer的盒子里面
+			
+			
+//			鼠标点击删除
+				var oDel = document.getElementsByClassName("del");
+				var oImg = document.getElementsByTagName("img");
+				for(var j=0;j<oDel.length;j++){
+					oDel[j].index = j;
+					oDel[j].onclick = function(){
+						this.parentNode.parentNode.removeChild(this.parentNode); 
+					}
+				}
+//				var str = "";
+//				for(var i=0;i<oImg.length;i++){
+//					str += oImg[this.index].src + ",";
+//				}
+//				$.ajax({
+//					type:"post",
+//					url:"000000000",
+//					data : {
+//						"imgsrc" = str,
+//					},
+//					success : function(message){
+//						alert("图片上传成功")
+//					},
+//					error : function(){
+//						alert("图片上传失败")
+//					}
+//				});
+			}
+			
+		</script>
+	</body>
+</html>

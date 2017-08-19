@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			img:nth-child(1){
+				position: absolute;left: 00px;top: 50px;
+			}
+			img:nth-child(2){
+				position: absolute;left: 00px;top: 50px;
+			}
+			img:nth-child(3){
+				position: absolute;left: 00px;top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/1.jpg" width="200px" onDblClick="return Resize(this,10);return false;" onmousewheel="return resizeimg(this)" /> 
+		<img src="img/1.jpg" width="200px" onDblClick="return Resize(this,10);return false;" onmousewheel="return resizeimg(this)" /> 
+		<img src="img/1.jpg" width="200px" onDblClick="return Resize(this,10);return false;" onmousewheel="return resizeimg(this)" /> 
+		<script language="javascript">   
+			var count = 10;
+			function resizeimg(oImage){
+				count = Counting(count);
+				Resize(oImage, count);
+				return false;
+			}
+			function Counting(newzoom) {
+				if (event.wheelDelta >= 120) newzoom++;
+				else if (event.wheelDelta <= -120) newzoom--;
+				if (newzoom < 2) newzoom = 2; ////只允许缩小到20%
+				if (newzoom > 50) newzoom = 50; ////只允许放大到500%
+				return newzoom;
+			}
+				function Resize(oImage, newzoom){
+					oImage.style.zoom = newzoom + '0%';
+					count = newzoom;
+				}
+		</script>
+	</body>
+</html>

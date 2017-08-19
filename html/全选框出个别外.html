@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button class="btn" status="0">全选</button>
+		<div class="outer">
+			<input data_id="1" type="checkbox" /><span>江西</span>
+			<input data_id="2" type="checkbox" /><span>浙江</span>
+			<input data_id="3" type="checkbox" /><span>湖南</span>
+			<input data_id="4" type="checkbox" /><span>湖北</span>
+			<input data_id="5" type="checkbox" /><span>广东</span>
+			<input data_id="6" type="checkbox" /><span>甘肃</span>
+			<input data_id="7" type="checkbox" /><span>黑龙江</span>
+			<input data_id="8" type="checkbox" /><span>河北</span>
+			<input data_id="9" type="checkbox" /><span>贵州</span>
+			<input data_id="10" type="checkbox" /><span>内蒙古自治区</span>
+			<input data_id="11" type="checkbox" /><span>海南</span>
+			<input data_id="12" type="checkbox" /><span>西藏自治区</span>
+		</div>
+		
+		<div class="outer2" style="border: 1px solid #008000;padding: 10px 0;">
+			<div class="proct">
+				<input data_id="1" type="checkbox" /><span>江西</span>
+				<div class="city">
+					<input data_id="111" type="checkbox" /><span>南昌市</span>
+					<input data_id="112" type="checkbox" /><span>九江市</span>
+					<input data_id="113" type="checkbox" /><span>瑞昌市</span>
+					<input data_id="114" type="checkbox" /><span>赣州市</span>
+					<input data_id="115" type="checkbox" /><span>宜春市</span>
+				</div>
+			</div><br/>
+			<div class="proct">
+				<input data_id="1" type="checkbox" /><span>江西</span>
+				<div class="city">
+					<input data_id="111" type="checkbox" /><span>南昌市</span>
+					<input data_id="112" type="checkbox" /><span>九江市</span>
+					<input data_id="113" type="checkbox" /><span>瑞昌市</span>
+					<input data_id="114" type="checkbox" /><span>赣州市</span>
+					<input data_id="115" type="checkbox" /><span>宜春市</span>
+				</div>
+			</div><br/>
+			<div class="proct">
+				<input data_id="1" type="checkbox" /><span>湖北</span>
+				<div class="city">
+					<input data_id="111" type="checkbox" /><span>黄冈市</span>
+					<input data_id="112" type="checkbox" /><span>武汉市</span>
+					<input data_id="113" type="checkbox" /><span>黄龙士</span>
+				</div>
+			</div>
+			
+		</div>
+		<script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			var oId = [5,10];//选择的id组成数组
+			$(".btn").click(function(){
+				if($(this).attr("status") == 0){
+					$(this).attr("status",1);
+					choice(0,oId);
+				}else if($(this).attr("status") == 1){
+					$(this).attr("status",0);
+					choice(1,oId);
+				}
+			})
+			
+			function choice( num,oId ){
+				console.log( num,oId )
+				if(num == 0){
+					$.each($('input[type="checkbox"]'), function(i) {
+						$.each(oId, function(j) {
+							if(oId[j] == $('input[type="checkbox"]').eq(i).attr("data_id")){
+								$('input[type="checkbox"]').eq(i).attr("checked","checked");
+							}
+						});
+					});
+				}
+				if(num == 1){
+					$.each($('input[type="checkbox"]'), function(i) {
+						$(this).removeAttr("checked");
+					});
+				}
+			}
+		</script>
+	</body>
+</html>

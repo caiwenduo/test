@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form id="uploadForm">
+		    <input id="file" type="file" name="file" multiple />
+		    <input id="files" type="file" name="file" multiple />
+		</form>
+		<script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+			    $('#file').on('change', function(){
+			        var fileName = $('#file').val();
+			        console.log($(this)[0].files)
+			        if(fileName){
+			            console.info(fileName);
+			        }
+			    });
+			    $('#file').on('change', function(){
+			        var fileName = $('#file').val();
+			        console.log($(this)[0].files)
+			        if(fileName){
+			            console.info(fileName);
+			        }
+			    });
+			});
+			
+			
+		</script>
+	</body>
+</html>

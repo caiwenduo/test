@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			.outerBox{
+				width: 1200px;height: 700px;border: 1px solid #78909C;
+			}
+			.outer{
+				width: 600px;height: 600px;border: 1px solid gray;float: left;
+			}
+			.smallBox{
+				float: left;
+			}
+			.smallBox div{
+				margin: 3px;width: 100px;height: 100px;background: #EFEFEF;border: 1px solid #EEE;text-align: center;line-height: 100px;float: left;display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outerBox">
+			<div class="outer"></div>
+			<div class="smallBox">
+				<div class="drapBox">第一个</div>
+				<div class="drapBox">第二个</div>
+				<div class="drapBox">第三个</div>
+				<div class="drapBox">第四个</div>
+				<div class="drapBox">第五个</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+//		$(".outerBox").mousemove(function(){
+//			var ev = ev || window.event;
+//			var left = ev.clientX;
+//			var top = ev.clientY;
+//			$(".drapBox").mousedown(function(){
+//				$(this).css({"position":"absolute",})
+//					
+//					var Width = $(".drapBox")[$(this).index()].offsetWidth/2;
+//					var Height = $(".drapBox")[$(this).index()].offsetHeight/2;
+//					console.log(Width)
+//					console.log(Height)
+//					$(".drapBox")[$(this).index()].style.left = left-Width+"px";
+//					$(".drapBox")[$(this).index()].style.top = top-Height+"px";
+//			})
+//		})
+		$(".drapBox").mousedown(function(){
+			$(".outerBox").mousemove(function(){
+				console.log(1)
+			})
+	    })
+				
+				
+		</script>
+		
+</script> 
+	</body>
+</html>

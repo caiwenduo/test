@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select id="province">
+			<option value=""></option>
+		</select>
+		<select id="city">
+			<option value=""></option>
+		</select>
+		<select id="area">
+			<option value=""></option>
+		</select>
+		<script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			province();//省份
+			function province(){
+				$.ajax({
+					type:"get",
+					url:"../js/area.json",
+					dataType:"json",
+					async:true,
+					success:function(res){
+						console.log(res.provinces);
+						var str_pro = '';
+						$.each(res.provinces, function(i) {
+							str_pro += '<option value="'+res.provinces[i].provinceid+'">'+res.provinces[i].province+'</option>';
+						});
+						$("#province").html( str_pro );
+						$("#province").trigger("change");
+					}
+				});	
+			}
+			$("#province").change(function(){
+				city( $(this).val() );//城市
+			})
+			function city( province_id ){
+				$.ajax({
+					type:"get",
+					url:"../js/area.json",
+					dataType:"json",
+					async:true,
+					success:function(res){
+						console.log(res.provinces);
+						var str_city = '';
+						$.each(res.provinces, function(i) {
+							if(res.provinces[i].provinceid == province_id){
+								$.each(res.provinces[i].cities, function(j) {
+									str_city += '<option value="'+res.provinces[i].cities[j].cityid+'">'+res.provinces[i].cities[j].city+'</option>'
+								});
+							}
+						});
+						$("#city").html( str_city );
+						$("#city").trigger("change");
+					}
+				});	
+			}
+			
+			$("#city").change(function(){
+				area( $("#province").val(),$(this).val() );//县区
+			})
+			
+			function area( province_id,city_id ){
+				console.log(province_id,city_id)
+				$.ajax({
+					type:"get",
+					url:"../js/area.json",
+					dataType:"json",
+					async:true,
+					success:function(res){
+						console.log(res);
+						var str_area = '';
+						$.each(res.provinces, function(i) {
+							if(res.provinces[i].provinceid == province_id){
+								$.each(res.provinces[i].cities, function(j) {
+									if( res.provinces[i].cities[j].cityid == city_id ){
+										$.each(res.provinces[i].cities[j].areas, function(k) {
+											str_area += '<option value="'+res.provinces[i].cities[j].areas[k].areaid+'">'+res.provinces[i].cities[j].areas[k].area+'</option>'
+										});
+									}
+								});
+							}
+						});
+						$("#area").html( str_area );
+					}
+				});	
+			}
+		</script>
+	</body>
+</html>

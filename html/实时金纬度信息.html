@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>经纬度</title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;font-size: 0.3rem;
+			}
+			html,body{
+				width: 100%;
+			}
+			.outer{
+				width: 100%;
+			}
+			.outer>p{
+				font-size: 0.35rem;
+			}
+			.outer>input{
+				margin: 10px 0;
+			}
+			.outer>button{
+				font-size: 0.35rem;width: 90%;margin: 10px 0;
+			}
+		</style>
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + "px";
+			window.addEventListener("resize",function(){
+				document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + "px";
+			})
+		</script>
+	</head>
+	<body>
+		<div class="outer">
+			<p class="show">当前位置信息显示</p>
+			<!--<button onclick="getLocation()">点我获取</button>-->
+			<span>目标经度:</span><input class="lon" type="text" /><br/>
+			<span>目标纬度:</span><input class="lat" type="text" /><br/>
+			<button>查询</button>
+			<div><p class="reslout">相距信息</p></div>
+		</div>
+		<!--<script type="text/javascript" src="../jquery-3.1.1.min.js"></script>-->
+		<script type="text/javascript">
+			var x = document.getElementsByClassName("show")[0];
+			
+			function getLocation(){
+		        if (navigator.geolocation){
+		        	
+		           	navigator.geolocation.getCurrentPosition(showPosition);
+
+		        }else{
+		            x.innerHTML="Geolocation is not supported by this browser.";
+		        }
+		    }
+			
+			function showPosition(position){
+		        x.innerHTML='<span>当前经度: </span><span class="now_lon">'+ position.coords.longitude +'</span><br/><span>当前纬度: </span><span class="now_lat">'+ position.coords.latitude +'</span>';
+		    }
+		    var timer = setInterval(function(){
+				getLocation();
+		    },1000)
+		    
+	    	function Rad(d){
+			    return d * Math.PI / 180.0;//经纬度转换成三角函数中度分表形式。
+			}
+			function GetDistance(lng1,lat1,lng2,lat2) {
+			    var radLat1 = Rad(lat1);
+			    var radLat2 = Rad(lat2);
+			    var a = radLat1 - radLat2;
+			    var  b = Rad(lng1) - Rad(lng2);
+			    var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a/2),2) +
+			                    Math.cos(radLat1)*Math.cos(radLat2)*Math.pow(Math.sin(b/2),2)));
+			    s = s *6378.137 ;// EARTH_RADIUS;
+			    s = Math.floor(s * 10000) / 10;//输出为米
+			    s = parseInt(s);
+			    return s;
+			}
+			
+		    document.getElementsByTagName("button")[0].onclick = function(){
+		    	var lng1 = document.getElementsByClassName("now_lon")[0].innerHTML;
+		    	var lat1 = document.getElementsByClassName("now_lat")[0].innerHTML;
+		    	var lng2 = document.getElementsByClassName("lon")[0].value;
+		    	var lat2 = document.getElementsByClassName("lat")[0].value;
+		    	document.getElementsByClassName("reslout")[0].innerHTML = GetDistance(lng1,lat1,lng2,lat2)+"米";
+		    }
+		</script>
+	</body>
+</html>

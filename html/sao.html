@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			div.outer{
+				overflow: hidden;clear: both;
+			}
+			div.outer_one,div.outer_two,.outer>span{
+				float: left;
+			}
+			div.outer>div>div{
+				display: inline;
+			}
+			.content2{
+				border: 1px solid #008000;padding: 10px 0;overflow: hidden;
+			}
+			.img_box{
+				float: left;margin: 5px;
+			}
+			.content{
+				border: 1px solid chartreuse;padding: 10px 0;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<ul><?php for($i=1;$i<=5;$i++){ ?> <li>Item No <?php echo $i; ?></li> <?php } ?></ul>
+		<div class="outer"><div class="outer_one"></div><span class="add_one">add+</span></div>
+		<div class="outer"><div class="outer_two"></div><span class="add_two">add+</span></div>
+		<div class="content"></div>
+		<div class="content2">
+			<!--<div class="img_box">
+				<img src="" width="100px" height="100px" border="1" /><br/>
+				<span>图片1</span>
+			</div>-->
+		</div>
+		<script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			$(".add_one").click(function(){
+				$(".outer_one").append( '<div class="add_input"><input class="input_one" type="text" /><span onclick="dellist_color(this)">X</span></div>' );
+				$(".input_one").one("blur",function(){
+					if($(".input_two").length == 0){
+						$(".content").html( '<div><span>我是单独的'+$(this).val()+'</span></div>' )
+					}else{
+						add_color( $(this).val() );
+					}
+					img_up( this );//这里把下表传过去
+				})
+			})
+			
+			$(".add_two").click(function(){
+				$(".outer_two").append( '<div><input class="input_two" type="text" /><span onclick="dellist_guige(this)">X</span></div>' );
+				$(".input_two").one("blur",function(){
+					if($(".input_one").length == 0){
+						$(".content").append( '<div><span>我是单独的'+$(this).val()+'</span></div>' )
+					}else{
+						add_guige( $(this).val() );
+					}
+				})
+			})
+			
+			function add_color( color ){
+				var str = '';
+				var guige;
+				$.each($(".input_two"), function() {
+					guige = $(this).val(); 
+					str += '<div class="str_list"><span class="yanse">'+color+'</span><input type="text"/><span class="guige">'+guige+'</span><input type="text"/></div>'
+				});
+				
+				$(".content").append( str );
+			}
+			
+			function add_guige( guige ){
+				var str = '';
+				var color;
+				$.each($(".input_one"), function() {
+					color = $(this).val(); 
+					str += '<div class="str_list"><span class="yanse">'+color+'</span><input type="text"/><span class="guige">'+guige+'</span><input type="text"/></div>'
+				});
+				
+				$(".content").append( str );
+			}
+			
+			//删除功能
+			function dellist_color( obj ){
+				//删除对应的图片上传
+				console.log( $(".add_input>span").index( obj ) );
+				var num = $(".add_input>span").index( obj );//删除上面选择框的下标数
+				$(".img_box").eq( num ).remove();
+				
+				
+				$(obj).parent().remove();
+				$.each($(".str_list"), function() {
+					if($(this).find(".yanse").html() == $(obj).siblings("input").val()  ){
+						$(this).remove();
+					}
+				});
+				
+			}
+			
+			function dellist_guige( obj ){
+				$(obj).parent().remove();
+				$.each($(".str_list"), function() {
+					if($(this).find(".guige").html() == $(obj).siblings("input").val()  ){
+						$(this).remove();
+					}
+				});
+			}
+			
+			
+			//图片上传问题
+			function img_up( obj ){
+				var str = '<div class="img_box">'
+							+'<img src="" width="100px" height="100px" border="1" /><br/>'
+							+'<span>'+$(obj).val()+'</span>'
+						+'</div>';
+				$(".content2").append( str );
+			}
+			
+			var fileId;
+			$(".btn").click(function(){//这个是图片上传的
+					fileId = $(this).siblings('input[type="file"]').attr("id");
+					imgup( fileId );
+			})
+			
+			function imgup( img_id ){//穿的参数是每个file框的id
+				var formData = new FormData();
+			    formData.append("file",$("#"+img_id+"")[0].files[0]);
+			    $.ajax({
+			    	type:"post",
+			    	url:"http://106.14.248.127:8080/api/v1/upload",
+			    	async:true,
+			    	cache: false,
+				    data: formData,
+				    processData: false,
+				    contentType: false,
+			    	data : formData,
+			    	success : function(res){
+				    	console.log(res.access_url)
+				    	//把返回的图片地址赋给对应的img标签
+				    	$("#"+img_id+"").siblings("img").attr("src",res.access_url);
+				    	
+			    	},
+			    	error : function(res){
+			    		console.log(res.access_url);
+			    	}
+			    })
+			}
+
+		</script>
+	</body>
+</html>

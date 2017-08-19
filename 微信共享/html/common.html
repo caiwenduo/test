@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*关于我们*/
+			.about_me{
+				background: rgba(222,222,222,0.3);
+			}
+			.about_me>.about_me_main{
+				padding: 0 0.2rem 0.2rem 0.2rem;
+			}
+			.about_me>.about_me_main>h3{
+				font-size: 0.25rem;color: #444;padding: 0.2rem 0 0.1rem 0;
+			}
+			.about_me>.about_me_main>dl{
+				display: flex;justify-content: flex-start;
+			}
+			.about_me>.about_me_main>dl>dt{
+				width: 1rem;height: 1rem;
+			}
+			.about_me>.about_me_main>dl>dt>img{
+				width: 1rem;height: 1rem;
+			}
+			.about_me>.about_me_main>dl>dd{
+				padding: 0 0 0 0.2rem;
+			}
+			.about_me>.about_me_main>dl>dd>p{
+				font-size: 0.19rem;color: #555;
+			}
+			.footer{
+				position: fixed;bottom: 0;left: 0;width: 100%;height: 1.1rem;background: rgba(0,0,0,0.65);z-index: 999;
+			}
+			.footer>div{
+				
+			}
+			.footer>div>img{
+				width: 0.8rem;height: 0.8rem;border-radius: 0.08rem;margin-right: 0.2rem;display: block;position: absolute;top: 0.15rem;left: 0.3rem;
+			}
+			.footer>div>div{
+				position: absolute;top: 0.15rem;left: 1.25rem;
+			}
+			.footer>div>div>p{
+				color: rgba(233,233,233,0.9);font-size: 0.3rem;display: block;
+			}
+			.footer>div>div>span{
+				font-size: 0.18rem;color: rgba(222,222,222,0.5);display: block;padding-top: 0.06rem;
+			}
+			.footer>div>a>.openOrDown{
+				color: rgba(222,222,222,1);background: rgba(50,205,50,0.9);font-size: 0.21rem;padding: 0.15rem 0.35rem;border-radius: 0.06rem;
+				position: absolute;left: 4.1rem;top: 0.26rem;
+			}
+			.footer>span{
+				position: absolute;right: 0.1rem;top: 0.1rem;font-size: 0.3rem;color: rgba(222,222,222,0.7);background: rgba(0,0,0,0.5);width: 0.4rem;height: 0.4rem;text-align: center;
+				line-height: 0.4rem;border-radius: 50%;
+			}
+
+		</style>
+	</head>
+	<body>
+	<div class="about_me">
+		<div class="about_me_main">
+    		<h3>关于我们</h3>
+    		<dl>
+    			<dt><img src="img/erweima.png"/></dt>
+    			<dd><p>盯房，一个全装修交付概念的买房、装房一站式服务平台，提供海量精装楼盘、最新楼市资讯，帮助业主更好的选房、盯房，打造置业安家的互联网平台。目标用户群体为购房业主与开发公司，辐射的群体有建装企业和材料服务商。</p></dd>
+    		</dl>
+		</div>
+    </div>
+	<div class="footer">
+		<div>
+			<img src="img/96.png"/>
+			<div>
+				<p>盯房房产App</p>
+				<span>从此购房就在一指之间啦</span>
+			</div>
+			<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><div class="openOrDown">立即打开</div></a>
+		</div>
+		<span class="close">X</span>
+	</div>
+	<script type="text/javascript" src="../js/zepto.min.js"></script>
+	<script type="text/javascript" src="../js/touch.js"></script>
+	<script type="text/javascript">
+		$(".close").on("tap",function(){
+			$(".footer").hide()
+		})
+	</script>
+	</body>
+</html>

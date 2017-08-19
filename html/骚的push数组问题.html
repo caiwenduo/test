@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商家后台首页</title>
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<link rel="stylesheet" type="text/css" href="{$Think.config.__PUBLIC__}/hui/static/h-ui/css/H-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="{$Think.config.__PUBLIC__}/hui/static/h-ui.admin/css/H-ui.admin.css" />
+	<link rel="stylesheet" type="text/css" href="{$Think.config.__PUBLIC__}/hui/lib/Hui-iconfont/1.0.8/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="{$Think.config.__PUBLIC__}/hui/static/h-ui.admin/skin/default/skin.css" id="skin" />
+	<link rel="stylesheet" type="text/css" href="{$Think.config.__PUBLIC__}/hui/static/h-ui.admin/css/style.css" />
+	<link rel="stylesheet" href="{$Think.config.__PUBLIC__}/style/css/h-ui.admin/css/h-ui.admin.css">
+	<link rel="stylesheet" href="{$Think.config.__PUBLIC__}/style/css/h-ui/css/H-ui.min.css">
+	<link rel="stylesheet" href="{$Think.config.__PUBLIC__}/style/css/page.css">
+	<link rel="stylesheet" href="{$Think.config.__PUBLIC__}/style/css/public.css">
+	<link rel="stylesheet" href="{$Think.config.__PUBLIC__}/style/css/style.css">
+	<style>
+		a {
+			color: #000;
+		}
+		a:hover{
+			color: #000;
+		}
+		.dropDown {
+			margin: 18px 31px 0 0;
+		}
+		.margin {
+			margin-left: 50px;
+		}
+		.ulb {
+		overflow: hidden;
+		width: 800px;
+		font-size: 13px;
+		}
+		.ulb li{
+			float: left;
+			width: 180px;
+		}
+		.uls {
+			overflow: hidden;
+			padding:0;
+			height:280px;
+			position:relative;
+			display: none;
+			width:190px;
+			border:1px solid #ccc;
+		}
+		.uls li{
+			font-size: 12px;
+			float: left;
+			width: 160px;
+			height: 20px;
+		}
+		input[type="checkbox"]{
+			margin:0;
+		}
+		.te-span{
+			text-indent: 0;
+			margin:0;
+			padding:0;
+			text-align:center;
+			font-size: 12px;
+			display:block;
+			width:40px;
+			height:26px;
+			background:#43c9eb;
+			color:#fff;
+			position:absolute;
+			bottom:10px;
+			right:2px;
+			line-height:26px;
+			cursor:pointer;
+		}
+	</style>
+</head> 
+<body>
+<div class="kong">
+	<div style="width: 100%;background: #fff;border-bottom: 1px solid #e8e8e8;">
+		<div id="header" class="margin" style="width: 1000px;height: 80px;padding-top: 10px;box-sizing: border-box;">
+			<div class="logo"><img src="style/img/official_logo.png" alt=""></div>
+			<div  id="Hui-userbar" class="nickname nav navbar-nav navbar-userbar hidden-xs">
+				<ul class="cl">
+					<li style="margin-top: 16px;"><img src="style/img/dian.jpg" alt="" style="width: 40px;height:30px;"></li>
+					<li class="dropDown dropDown_hover"> <a href="" class="dropDown_A" style="color: #000;">店铺名称<i class="Hui-iconfont">&#xe6d5;</i></a>
+					</li>
+				</ul>	
+			</div>
+		</div>
+	</div>
+</div>
+<div class="Hui-aside" style="margin-top: 37px;">
+	<div class="menu_dropdown bk_2">
+		<dl id="menu-article">
+			<dt><i class="Hui-iconfont">&#xe67f;</i> 首页<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="goods.html" title="订单">订单</a></li>
+					<li><a href="cash.html" title="提现">提现</a></li>
+					<li><a href="cash-record.html" title="提现记录">提现记录</a></li>
+					<li><a href="bill.html" title="查看结算账单">查看结算账单</a></li>
+					<li><a href="confirm.html" title="确认发货">确认发货</a></li>
+					<li><a href="jiesuan.html" title="确认结算单">确认结算单</a></li>
+					<li><a href="return.html" title="查看退款退货结算单">查看退款退货结算单</a></li>
+					<li><a href="details.html" title="查看详情">查看详情</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-article">
+			<dt><i class="Hui-iconfont">&#xe620;</i>商品<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="goods.html" title="所有商品">所有商品</a></li>
+					<li><a href="classify.html" title="添加商品-选择商品分类">添加商品-选择商品分类</a></li>
+					<li><a href="shop-message.html" title="添加商品-编辑基本信息">添加商品-编辑基本信息</a></li>
+					<li><a href="goods-mould.html" title="商品详情模板">商品详情模板</a></li>
+					<li><a href="addgoods-mould.html" title="添加商品详情模板">添加商品详情模板</a></li>
+					<li><a href="rent-mould.html" title="租赁规则/合约模板">租赁规则/合约模板</a></li>
+					<li><a href="addrent-mould.html" title="添加租赁规则/合约模板">添加租赁规则/合约模板</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-picture">
+			<dt><i class="Hui-iconfont">&#xe669;</i> 物流模板<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="ziti.html" title="自提点">自提点</a></li>
+					<li><a href="addziti-list.html" title="添加自提点">添加自提点</a></li>
+					<li><a href="fare.html" title="运费模板">运费模板</a></li>
+					<li><a href="addfare.html" title="添加运费模板">添加运费模板</a></li>
+					<li><a href="return-address.html" title="归还地址">归还地址</a></li>
+					<li><a href="add-returnaddress.html" title="添加归还地址">添加归还地址</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-product">
+			<dt><i class="Hui-iconfont">&#xe636;</i> <a href="rule.html" title="规则中心">规则中心</a></dt>
+			<dd>
+				<ul>
+					<li><a href="jieda.html" title="规则中心详情解答">规则中心详情解答</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-comments">
+			<dt><i class="Hui-iconfont">&#xe622;</i> <a href="message-center.html" title="消息中心">消息中心</a></dt>
+		</dl>
+			<dl id="menu-comments">
+			<dt><i class="Hui-iconfont">&#xe60c;</i> 商家资料设置<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="modify.html" title="修改资料">修改资料</a></li>
+					<li><a href="bank.html" title="银行账号信息">银行账号信息</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-comments">
+			<dt><i class="Hui-iconfont">&#xe63c;</i> <a href="pinjia.html" title="评价管理">评价管理</a></dt>
+		</dl>
+	</div>
+</div>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+
+<div class="Hui-article-box" style="margin-top: 37px;">
+	<div class="breadcrumb"><i class="Hui-iconfont"></i>物流模板
+	<span class="c-gray en">&gt;</span> 添加运费模板 <span class="c-gray en">&gt;</span> 
+	</div>
+	<div class="Hui-article">
+			<div style="height: 100px;border:1px solid #ccc;" class="mac">
+				<div style="margin-left: 30px;">
+					<h3>添加运费模板</h3>
+					<span>物流模板/运费模板/<span style="font-weight: bold;font-size: 16px;">添加运费模板</span></span>
+				</div>
+			</div>
+			<form action="" style="height: 900px;">
+					<div style="margin:20px 0 0 50px;">
+						<span class="modal_name">模板名称：</span>
+						<input type="text" class="modal_name input-text radius size-M" style="margin-left: 46px;">
+					</div>
+					<div class="cl">
+						<div style="float: left;margin:20px 0 0 50px;">
+							<span>选择模板：</span>
+						</div>
+		<div id="tab_demo" class="HuiTab" style="margin:20px 0 0 50px;float: left;">
+		  <div class="tabBar clearfix"><span>快递运费模板</span><span>上门运费模板</span></div>
+			<div class="tabCon" style="position: relative;">
+			  <span style="position: absolute;left: -120px;">配送区域：</span>
+				<table class="table table-te1 table-border table-bg  table-bordered" style="margin-bottom: 20px;width:800px;margin-top: 20px;">
+			 	<tr class="text-c text-cs first-tr">
+			 		<td style="width: 220px;">运送到</td>
+			 		<td>首件（元）</td>
+			 		<td>续件（元）</td>
+			 		<td>操作</td>
+			  	</tr>
+			  	<tr style="height: 70px;" class="text-c">
+			 		<td style="width: 220px;"><div class="areas">未添加地区</div>
+			 		<span onclick="modaldemo1()" style="color: #00f;cursor: pointer;" class="fare-span">编辑</span></td>
+			 		<td><input type="text" class="first_pay input-text radius size-M edit"></td>
+			 		<td><input type="text" class="xu_pay input-text radius size-M edit"></td>
+			 		<td><span style="color: #00f;cursor:pointer;">删除</span></td>
+			  	</tr>
+			</table>
+	<div id="modal-demo1"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content radius" style="width: 900px;">
+			<div class="modal-header">
+				<h3 class="modal-title" style="text-align: center;">快递配送区域</h3>
+				<a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:void();">×</a>
+			</div>
+			<div class="modal-body">
+				<div class="wrrap">
+					<div class="top">
+						<input class="checkAll" checked="checked" type="checkbox">全国包邮
+						<input class="check1" type="checkbox">全国包邮（不包括新疆，西藏，内蒙古）
+						<input class="check2" type="checkbox">部分地区包邮
+					</div>
+					<div class="content" style="overflow: hidden;">
+						<ul class="ulb" style="float: left;">
+							
+							
+						</ul>
+					</div>	
+				</div>
+			</div>
+			<div class="modal-footer">
+				<span class="btn btn-primary" onclick="sd()">确定</span>
+				<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="btn-l">
+		<input type="button" onclick="baocun()" class="btn" value="保存">
+	 	<input type="button" class="btn" value="返回" style="margin-left: 20px;">
+	</div>	
+					</div>
+							<div class="tabCon" style="position: relative;">
+							  <span style="position: absolute;left: -120px;">配送区域：</span>
+							  	<table class="table table-te table-border table-bg  table-bordered" style="margin-bottom: 20px;width:800px;margin-top: 20px;">
+									 	<tr class="text-c text-cs first-tr">
+									 		<td style="width: 220px;">运送到</td>
+									 		<td>价格</td>
+									 		<td>操作</td>
+									  	</tr>
+									  	<tr style="height: 70px;" class="text-c">
+									 		<td style="width: 220px;">
+											<div class="aread">未添加地区</div>
+									 		<span style="color: #00f;cursor: pointer;" class="fare-span" onclick="modaldemo()">编辑</span></td>
+									 		<td><input type="text" class="price input-text radius size-M twopay "></td>
+									 		<td><span style="color: #00f;cursor:pointer;">删除</span></td>
+									  	</tr>
+									</table>
+									<span class="btn" onclick="addtr()">添加上門</span>
+			<div id="modal-demo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content radius" style="width: 600px;">
+						<div class="modal-header">
+							<h3 class="modal-title" style="text-align: center;">上门配送区域</h3>
+							<a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:void();">×</a>
+						</div>
+						<div class="modal-body">
+							<select name="" id="province"></select>
+							<select name="" id="city"></select>
+							<div id="area" style="width:300px;height: 200px;border:1px solid #ccc;overflow: hidden;padding:10px 0 0 10px;margin-top: 20px;">
+								
+							</div>
+							<div><input type="checkbox" class="checkall">全选</div>
+						</div>
+						<div class="modal-footer">
+							<span class="btn btn-primary" onclick="sds()">确定</span>
+							<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="btn-l">
+						<input type="button" onclick="baocun1()" class="btn" value="保存">
+					 	<input type="button" class="btn" value="返回" style="margin-left: 20px;">
+					</div>	
+				  </div>
+				</div>
+				</div>
+			</form>
+	</div>
+</div>
+	
+<script type="text/javascript" src="{$Think.config.__PUBLIC__}/hui/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="{$Think.config.__PUBLIC__}/hui/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="{$Think.config.__PUBLIC__}/hui/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="{$Think.config.__PUBLIC__}/hui/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="{$Think.config.__PUBLIC__}/hui/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="{$Think.config.__PUBLIC__}/hui/static/h-ui/js/H-ui.js"></script>
+<script type="text/javascript" src="{$Think.config.__PUBLIC__}/hui/static/h-ui.admin/js/H-ui.admin.page.js"></script>
+<script type="text/javascript" src="{$Think.config.__PUBLIC__}/style/js/page.js"></script>
+<script type="text/javascript" src="{$Think.config.__PUBLIC__}/hui/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="{$Think.config.__PUBLIC__}/hui/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="{$Think.config.__PUBLIC__}/hui/lib/laypage/1.2/laypage.js"></script>
+<script> 
+	function sd(){
+		alert('添加成功');
+		$("#modal-demo").modal("hide");
+		$("#modal-demo1").modal("hide");
+		
+		
+	}
+	var area_value=[];
+	function sds(){
+		$('.aread').html('');
+		$('input[name="test"]:checked').each(function(i){
+			if(area_value[i] != $(this).val()){
+				area_value.push($(this).val());
+			}else{
+
+			}
+			$('.aread').append($(this).val());
+
+		})
+
+		alert('添加成功');
+		$("#modal-demo1").modal("hide");
+		$("#modal-demo").modal("hide");
+		if($('input[name="test"]:checked').length==0){
+			alert('你还没有选择任何内容');
+		}
+		console.log(area_value);
+	}
+   $(function(){
+$.Huitab("#tab_demo .tabBar span","#tab_demo .tabCon","current","click","0")});
+   function modaldemo(){
+
+		$("#modal-demo").modal("show")
+	}
+	 function modaldemo1(){
+		$("#modal-demo1").modal("show")
+	}
+	function addtr(){
+		var str='';
+		str='<tr style="height: 70px;" class="text-c">'
+	 		+'<td style="width: 220px;">未添加地区<span style="color: #00f;cursor: pointer;" class="fare-span"onclick="modaldemo()">编辑</span></td>'
+	 		+'<td><input type="text" class="input-text radius size-M "></td>'
+	 		+'<td><span style="color: #00f;cursor:pointer;">删除</span></td>'
+	  	+'</tr>';
+	  	$('.table-te').append(str);
+	}
+	function addtr1(){
+		var str='';
+		str='<tr style="height: 70px;" class="text-c">'
+		 		+'<td style="width: 220px;">未添加地区<span onclick="modaldemo1()" style="color: #00f;cursor: pointer;" class="fare-span">编辑</span></td>'
+		 		+'<td><input type="text" class="input-text radius size-M edit"></td>'
+		 		+'<td><input type="text" class="input-text radius size-M edit"></td>'
+		 		+'<td><span style="color: #00f;cursor:pointer;">删除</span></td>'
+		  	+'</tr>';
+	  	$('.table-te1').append(str);
+	}
+	function ulshow(obj){
+	if ($(obj).prop('checked')) {
+        $(obj).parent().siblings().children().find('input').prop('checked', true);
+		$(obj).parent().siblings().show();
+	}else{
+		 $(obj).parent().siblings().children().find('input').prop('checked', false);
+	}
+}
+function queding(obj){
+	$(obj).parent().parent().hide();
+	//$(obj).parent().parent().siblings().children().prop('checked',true)
+}
+$('.checkAll').on('click', function() {
+        if ($('.checkAll').prop('checked')) {
+            $('input').prop('checked', true);
+        } else {
+            $('input').prop('checked', false);
+        }
+    });
+    var $input=$('input').not('.checkAll');
+    $input.on('change',function(){
+    	if($('input:checked').not('.checkAll').length== $input.size()){
+    		$('.checkAll').prop('checked',true);
+    	}else{
+    		$('.checkAll').prop('checked',false);
+    	}
+    });
+
+    $('.check1').on('click', function() {
+        if ($('.check1').prop('checked')) {
+            $(':input').prop('checked', true);
+         	$('.te').prop('checked', false);
+        } else {
+            $(':input').prop('checked', false);
+        }
+    });
+    var $input=$('input').not('.check1');
+    $input.on('change',function(){
+    	if($('input:checked').not('.check1').length== $input.size()){
+    		$('.check1').prop('checked',true);
+    	}else{
+    		$('.check1').prop('checked',false);
+    	}
+    });
+    $('.check2').on('click', function() {        
+        $(':input').not('.check2').prop('checked', false);
+    });
+    var $input=$('input').not('.check2');
+    $input.on('change',function(){
+    	if($('input:checked').not('.check2').length== $input.size()){
+    		$('.check2').prop('checked',true);
+    	}else{
+    		$('.check2').prop('checked',false);
+    	}
+    });
+    function dan(obj){
+    	if ($(obj).prop('checked')) {
+            $(obj).parent().siblings().find('input[type=checkbox]').prop('checked', true)
+        } else {
+            $(obj).parent().siblings().find('input[type=checkbox]').prop('checked', false);
+        }
+    }
+    $(function() {
+		$.ajax({  
+			type:"get",
+		    url:"{$Think.config.__PUBLIC__}/area.json",
+		    dataType:'json', 
+		    data:'',   
+		    success:function(res) {  
+	    		//console.log(res);
+	    		kuaidi(res);
+	    	}
+		});
+	})
+function kuaidi(res){
+	var str='';
+	var str1='';
+	var str2='';
+	for(var j=0;j<res.probinces.length;j++){
+		str='<li class="uld"><div class="fu">'
+		+'<input type="checkbox" onclick="ulshow(this)" value="'+res.probinces[j].provinceid+'">'+res.probinces[j].province+'</div></li>';
+	$('.ulb').append(str);
+	$('.uld').eq(4).children('.fu').children().addClass('te');
+	$('.uld').eq(25).children('.fu').children().addClass('te');
+	$('.uld').eq(30).children('.fu').children().addClass('te');
+	str2='<ul class="uls" style="position:relative;display: none;width:200px;height:180px;border:1px solid #ccc;"></ul>';
+	$('.uld').eq(j).append(str2);
+	//console.log($('.uld'));
+	for (var i =0;i<res.probinces[j].cities.length; i++) {
+			 str1='<li class="city"><input type="checkbox" value="'+res.probinces[j].cities[i].provinceid+'"><span class="spa1">'+res.probinces[j].cities[i].city+'</span><span onclick="queding(this)" class="te-span">确定</span></li>';
+			//console.log(str1);
+			$('.uls').eq(j).append(str1)	
+		}
+		
+	}
+	    
+}
+	$('.checkall').on('click', function() {
+        if ($('.checkall').prop('checked')) {
+            $('#area :input').prop('checked', true);
+        } else {
+            $('#area :input').prop('checked', false);
+        }
+    });
+	province();
+	function province(){
+		$.ajax({
+			type:"get",
+			url:"{$Think.config.__PUBLIC__}/area.json",
+			dataType:"json",
+			async:true,
+			success:function(res){
+				//console.log(res.probinces);
+				var str_pro = '';
+				$.each(res.probinces, function(i) {
+					str_pro += '<option value="'+res.probinces[i].provinceid+'">'+res.probinces[i].province+'</option>';
+				});
+				$("#province").html( str_pro );
+				$("#province").trigger("change");
+			}
+		});	
+	}
+	$("#province").change(function(){
+		city( $(this).val() );
+	})
+	function city( province_id ){
+		$.ajax({
+			type:"get",
+			url:"{$Think.config.__PUBLIC__}/area.json",
+			dataType:"json",
+			async:true,
+			success:function(res){
+				//console.log(res.probinces);
+				var str_city = '';
+				$.each(res.probinces, function(i) {
+					if(res.probinces[i].provinceid == province_id){
+						$.each(res.probinces[i].cities, function(j) {
+							str_city += '<option value="'+res.probinces[i].cities[j].cityid+'">'+res.probinces[i].cities[j].city+'</option>'
+						});
+					}
+				});
+				$("#city").html( str_city );
+				$("#city").trigger("change");
+			}
+		});	
+	}
+	
+	$("#city").change(function(){
+		area( $("#province").val(),$(this).val() );
+	})
+	
+	function area( province_id,city_id ){
+		//console.log(province_id,city_id)
+		$.ajax({
+			type:"get",
+			url:"{$Think.config.__PUBLIC__}/area.json",
+			dataType:"json",
+			async:true,
+			success:function(res){
+				//console.log(res);
+				var str_area = '';
+				$.each(res.probinces, function(i) {
+					if(res.probinces[i].provinceid == province_id){
+						$.each(res.probinces[i].cities, function(j) {
+							if( res.probinces[i].cities[j].cityid == city_id ){
+								$.each(res.probinces[i].cities[j].areas, function(k) {
+									str_area += '<div class="box-area" style="float:left;width:80px;height:26px;"><input type="checkbox" name="test" value="'+res.probinces[i].cities[j].areas[k].area+'"/>'+res.probinces[i].cities[j].areas[k].area+'</div>';
+								});
+							}
+						});
+					}
+				});
+				$("#area").html( str_area );
+			}
+		});	
+	}
+ 
+
+	function baocun(){
+
+		var prolen=$(".fu>input:checked").length;
+		var arr1=[];
+		for(var i=0;i<prolen;i++){
+			
+				province_id=$(".fu>input:checked").eq(i).val()
+			arr1.push(province_id);
+		}
+		var arr2=[];
+		var citylen=$(".city>input:checked").length;
+		alert(citylen)
+		for(var i=0;i<citylen;i++){
+			var city= {
+				"city_name":$(".city>input:checked").eq(i).siblings('.spa1').html(),
+				"province_id":$(".city>input:checked").eq(i).val()
+			}
+			arr2.push(city);
+		}
+		console.log(arr2);
+		var modal_name=$('.modal_name').val();
+		var first_pay=$('.first_pay').val();
+		var xu_pay=$('.xu_pay').val();
+		$.ajax({
+			type:'post',
+			url:"{:url('freight/do_add')}",
+			data:{arr1:arr1,arr2:arr2,modal_name:modal_name,first_pay:first_pay,xu_pay:xu_pay,},
+			success:function(res){
+				
+				console.log(res)
+				if(status==1){
+				//setTimeout(function(){
+					//location.reload();
+					console.log(res.status);
+				//},1000)
+			}
+			}
+
+		})
+	}
+
+function baocun1(){
+	var province_name=$("#province>option:selected").html();
+	var city_name=$("#city>option:selected").html();
+	/*$.each($("#city>option:selected"),function(i){
+		var area_name=$(".box-area>input:checked").eq(i).siblings('.spa2').html();
+		alert(area_name);
+	})*/
+	/*var area_name=$(".box-area>input:checked").siblings('.spa2').html();
+	alert(area_name);*/
+	/*var area_id=$(".box-area>input:checked").val();
+	var arr=[];
+	alert(area_id.length);
+	for(var i=0;i<area_id.length;i++){
+		arr.push(area_name)
+	}*/
+	//console.log(arr);
+	/*$.ajax({
+		type:'post',
+		url:"{:url('freight/do_add')}",
+		data:{province_name:province_name,city_name:city_name,
+		area_name:area_name,arr:arr},
+		success:function(res){
+			if(status==1){
+				console.log(res);
+			}
+		}
+
+	})*/
+}
+
+/*if($('.checkAll').attr('checked',true)){
+	var is_type='1';	
+}else if($('.check1').attr('checked',true)){
+	var is_type='2';
+}else if($('.check2').attr('checked',true)){
+	var is_type='3';
+}*/
+
+
+	
+</script>
+</body>
+</html>

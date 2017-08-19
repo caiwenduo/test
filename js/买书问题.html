@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta charset="UTF-8">
+		<title>买书问题</title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;font-size: 0.3rem;
+			}
+			.box{
+				margin: 50px auto;width: 250px;
+			}
+			p{
+				padding: 10px 0;
+			}
+			img{
+				width: 100%;
+			}
+		</style>
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + "px";
+					window.addEventListener("resize",function(){
+				document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + "px";
+			},false);
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<img src="https://img.alicdn.com/imgextra/i2/TB1avo0QFXXXXXpXFXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"/>
+			<p>这本书由我买好不好？</p>
+			<button>测试</button>
+			<p class="test"></p>
+		</div>
+		
+		<!--<script type="text/javascript" src="../jquery-3.1.1.min.js"></script>-->
+		<script type="text/javascript">
+			document.getElementsByTagName("button")[0].onclick = function(){
+				var num = Math.random();
+				if(num < 0.85){
+					document.getElementsByClassName("test")[0].innerHTML = "这主意不错,必须买^_^！";
+				}else{
+					document.getElementsByClassName("test")[0].innerHTML = "你个穷鬼那还有钱买书，滚一边去！";
+				}
+			}
+		</script>
+	</body>
+</html>

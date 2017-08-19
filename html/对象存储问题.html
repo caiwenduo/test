@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			var data = [{"data":["1","1","1","1"]},{"data":["1","1","1","1"]}]
+			console.log(data);
+			for(var i in data){
+				data[i].data[0] = "25"
+			}
+			localStorage.setItem("data",JSON.stringify(data));
+			console.log(localStorage.getItem("data"));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			a{
+				text-decoration:none;
+			}
+			a:hover{
+				text-decoration:none;
+			}
+			.tcdPageCode{
+				padding: 15px 20px;text-align: left;color: #ccc;text-align:center;
+			}
+			.tcdPageCode a{
+				display: inline-block;color: #428bca;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle;
+				}
+			.tcdPageCode a:hover{
+				text-decoration: none;border: 1px solid #428bca;
+			}
+			.tcdPageCode span.current{
+				display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #fff;background-color: #428bca;	border: 1px solid #428bca;border-radius: 4px;vertical-align: middle;
+			}
+			.tcdPageCode span.disabled{	
+				display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #bfbfbf;background: #f2f2f2;border: 1px solid #bfbfbf;border-radius: 4px;vertical-align: middle;
+			}
+			li.active{
+				color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="list_outer"></ul>
+		<div class="page_outer"><div class="tcdPageCode page_one"></div></div>
+		<script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="../js/page.js"></script>
+		<script type="text/javascript">
+			var jsonlist = [{"haha":"123456789a","status":"0"},{"haha":"123456789b","status":"0"},{"haha":"123456789c","status":"0"},{"haha":"123456789d","status":"0"},{"haha":"123456789e","status":"0"},{"haha":"123456789f","status":"0"},{"haha":"123456789g","status":"0"},{"haha":"123456789h","status":"0"},{"haha":"123456789i","status":"0"},
+			{"haha":"1234wer56789j","status":"0"},{"haha":"123456sf789m","status":"0"},{"haha":"123456sdf789n","status":"0"},{"haha":"123456789o","status":"0"},{"haha":"123456789p","status":"0"},{"haha":"123456789q","status":"0"},{"haha":"123456789r","status":"0"},{"haha":"123456789w","status":"0"},{"haha":"123456789t","status":"0"},{"haha":"123456789u","status":"0"},
+			{"haha":"123456789v","status":"0"},{"haha":"123456sdf789w","status":"0"},{"haha":"1gqf3456789x","status":"0"},{"haha":"123few456789y","status":"0"},{"haha":"123456a89z","status":"0"},{"haha":"123gwe456789","status":"0"},{"haha":"123456gwe789","status":"0"},{"haha":"123456789","status":"0"},{"haha":"123456789","status":"0"},{"haha":"123456789","status":"0"},
+			{"haha":"123rwe56789","status":"0"},{"haha":"1234567af89","status":"0"}]
+//			console.log(jsonlist);
+			var num = 4;//每页显示条数
+			var pageCount = Math.ceil( jsonlist.length / num );//向上取整
+			pages( 1,num );
+			function pages( page,num ){
+				var startNum = (page-1)*num;
+				var endNum = page*num;
+//				console.log(endNum)
+				var str = '';
+				for(var i=startNum;i<endNum;i++){
+					if(i<jsonlist.length){
+						var active = jsonlist[i].status;
+						if(active == 1){
+							active = "active";
+							str += '<li class="oli '+active+'" oindex="'+i+'" status="'+jsonlist[i].status+'" onclick="status(this)"><span>'+jsonlist[i].haha+'</span></li>'
+						}else{
+							str += '<li class="oli" oindex="'+i+'" status="'+jsonlist[i].status+'" onclick="status(this)"><span>'+jsonlist[i].haha+'</span></li>'
+						}
+					}
+					
+				}
+				$(".list_outer").html( str );
+			}
+			
+			$(".page_one").createPage({
+				//楼盘列表分页
+		        pageCount:pageCount,
+		        current:1,
+		        backFn:function(p){
+		            //console.log(p);
+		            pages( p,num );
+		        }
+		    });
+		    
+		    function status( obj ){
+		    	console.log( $(obj).attr("oindex") )
+		    	if( $(obj).attr("status") == 0 ){
+		    		$(obj).attr("status",1);
+		    		$(obj).addClass("active");
+		    		jsonlist[$(obj).attr("oindex")].status = 1;
+		    	}else{
+		    		$(obj).attr("status",0);
+		    		$(obj).removeClass("active");
+		    		jsonlist[$(obj).attr("oindex")].status = 0;
+		    	}
+		    	
+		    }
+		</script>
+	</body>
+</html>

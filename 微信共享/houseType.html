@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/houseType.css"/>
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + "px";
+			window.addEventListener("resize",function(){
+				document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + "px";
+			},false);
+		</script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="house_type">
+				<dl>
+					<dt>
+						<div class="swiper-container swiper-container1">
+					        <div class="swiper-wrapper">
+					            <div class="swiper-slide"><img src="img/raw_1480594080.jpeg"/></div>
+					            <div class="swiper-slide"><img src="img/raw_1479177078.jpeg"/></div>
+					            <div class="swiper-slide"><img src="img/raw_1479894613.jpeg"/></div>
+					            <div class="swiper-slide"><img src="img/raw_1479177087.jpeg"/></div>
+					            <div class="swiper-slide"><img src="img/raw_1480562398.jpeg"/></div>
+					            <div class="swiper-slide"><img src="img/raw_1480592268.jpeg"/></div>
+					        </div>
+					        <!-- Add Pagination -->
+					        <div class="swiper-pagination"></div>
+					   </div>
+					</dt>
+					<dd>
+						<h3>M户型 3房2厅2卫</h3>
+						<p>户型正气 三方朝南 超大露台 总送20方面积</p>
+						<p><span class="type_title">面积 : </span><span class="type_text">118m²</span></p>
+						<p><span class="type_title">房源 : </span><span class="type_text">7套可售</span></p>
+						<p><span class="type_title">分布 : </span><span class="type_text">1#、2#、3#、4#、5#、2#、3#、4#、5#、2#、3#、4#、5#、2#、3#、4#、5#、2#、3#、4#、5#、2#、3#、4#、5#、2#、3#、4#、5#</span></p>
+						<p><span class="type_title">楼盘 : </span><span>方正御星</span><span class="type_more">查看楼盘详情></span></p>
+					</dd>
+				</dl>
+			</div>
+			<div class="thisHouse">
+				<h3>本户型房源</h3>
+				<ul>
+					<li>
+						<span class="unit">3#-2单元-1203</span><span class="price">248.50万元</span><span class="shopping">认购</span>
+					</li>
+					<li>
+						<span class="unit">3#-2单元-1203</span><span class="price">248.50万元</span><span class="shopping">认购</span>
+					</li>
+					<li>
+						<span class="unit">3#-2单元-1203</span><span class="price">248.50万元</span><span class="shopping">认购</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<footer></footer>
+		<script type="text/javascript" src="js/zepto.min.js"></script>
+		<script type="text/javascript" src="js/swiper.min.js"></script>
+		<script type="text/javascript" src="js/touch.js"></script>
+		<script type="text/javascript">
+			$("footer").load('html/common.html');
+			var swiper = new Swiper('.swiper-container1', {
+		        pagination: '.swiper-pagination',
+		        paginationClickable: true,
+		        autoplay: 2000,
+			    autoplayDisableOnInteraction : false
+		    });
+		   
+		    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+			var isiOS = !!u.match(/(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+			android();
+			ios();
+			if(isAndroid){
+			      function android(){
+			        window.location.href = "openwjtr://com.tyrbl.wjtr"; /***打开app的协议，有安卓同事提供***/
+			        window.setTimeout(function(){
+			           window.location.href = "http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"; /***打开app的协议，有安卓同事提供***/
+			        },2000);
+			      };
+			}
+			if(isiOS){
+			    function ios(){
+			        var ifr = document.createElement("iframe");
+			        ifr.src = "openwjtr://com.tyrbl.wjtr"; /***打开app的协议，有ios同事提供***/
+			        ifr.style.display = "none"; 
+			        document.body.appendChild(ifr);
+			        window.setTimeout(function(){
+			            document.body.removeChild(ifr);
+			            window.location.href = "http://www.wjtr.com/download/index.html"; /***下载app的地址***/
+			        },2000)
+			    };
+			}
+			
+		</script>
+	</body>
+</html>

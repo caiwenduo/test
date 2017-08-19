@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			div.img_outer{
+				width: 80px;height: 80px;border: 1px solid #EEE;overflow: hidden;position: relative;
+				margin: 100px auto;display: -webkit-box;display: -moz-box;display: -webkit-flex;display: flex;
+				justify-content: center;-webkit-justify-content: center;-webkit-box-pack: center;
+			}
+			div.img_outer>img{
+				height: 100%;
+			}
+			div.img_outer2{
+				width: 150px;height: 150px;border: 1px solid #EEE;overflow: hidden;position: relative;
+				margin: 100px auto;display: -webkit-box;display: -moz-box;display: -webkit-flex;display: flex;
+				justify-content: center;-webkit-justify-content: center;-webkit-box-pack: center;
+				align-items: center;-webkit-align-items: center;-webkit-box-align: center;
+			}
+			
+			div.img_outer2_H>img{
+				height: 100%;
+			}
+			div.img_outer2_W>img{
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="img_outer">
+			<img src="../微信共享/img/raw_1480749893.png" alt="" />
+		</div>
+		<div class="img_outer2">
+			<img src="../img/MYXJ_20170813143403_fast.jpg" alt="" />
+		</div>
+		<div class="img_outer2">
+			<img src="../img/ts_hw170731_02.jpg" alt="" />
+		</div>
+		<div class="img_outer2">
+			<img src="../img/TIM截图20170818002914.png" alt="" />
+		</div>
+		<div class="img_outer2">
+			<img src="../img/微信图片_20170711112126.png" alt="" />
+		</div>
+		<script type="text/javascript" src="../jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+			var Hei = 80;
+			var Wei = 80;
+			$.each($("div.img_outer2>img"), function(i) {
+				if($(this).width()/$(this).parent().width() < $(this).height()/$(this).parent().height()){
+					if($(this).width()>$(this).parent().width()){
+						$(this).width( $(this).parent().width() );
+					}
+				}else if($(this).width()/$(this).parent().width() > $(this).height()/$(this).parent().height()){
+					if($(this).height()>$(this).parent().height()){
+						$(this).height( $(this).parent().height() );
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>懒加载功能</title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			html,body{
+				width: 100%;height: 100%;
+			}
+			.outer{
+				width: 100%;height: 100%;overflow-y: auto;
+			}
+			.outer>img{
+				width: 100%;height: 30%;display: block;
+			}
+			p{
+				text-align: center;font-size: 0.23rem;line-height: 0.5rem;height: 0.5rem;width: 100%;
+			}
+		</style>
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + 'px';
+			window.addEventListener(function(){
+				document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + 'px';
+			},false)
+		</script>
+	</head>
+	<body>
+		<div class="outer"></div>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			var json = {
+				"data" : {
+					"picUrl" : [
+					"http://img1.gtimg.com/astro/pics/hv1/233/66/2208/143592263.jpg",
+					"http://img1.gtimg.com/astro/pics/hv1/244/66/2208/143592274.jpg",
+					"http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170214/07d234e8ae074c90b54a290ac2142f58.png",
+					"http://img1.gtimg.com/astro/pics/hv1/232/66/2208/143592262.jpg",
+					"http://img1.gtimg.com/astro/pics/hv1/230/66/2208/143592260.jpg",
+					"http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170214/1d66ddd1501f46e2a3bac88193c9ec42.png",
+					"http://img1.gtimg.com/astro/pics/hv1/73/4/2208/143576293.jpg",
+					"http://mat1.gtimg.com/fashion/evayang/20170416/htmlyaochen.jpg",
+					"http://mat1.gtimg.com/fashion/fu/0314/zhangziyi.jpg",
+					"http://mat1.gtimg.com/fashion/Huron/170427/170502/170503/xwzxwz.jpg",
+					"http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170415/939a0bca175c4cf6b05868adbac9513d.jpg",
+					"http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170415/ef0f1277d07d4714a8c32d5b22d97a9a.jpg",
+					"http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170415/31735fa7d308452ca0cf7067f17ddd33.jpg",
+					"http://mat1.gtimg.com/fashion/sitong/4.21/3604801.jpg",
+					"http://mat1.gtimg.com/fashion/evayang/20170416/htmlzhaoyouting.jpg",
+					"http://mat1.gtimg.com/fashion/evayang/20170407/htmlhujinghua.jpg",
+					"http://mat1.gtimg.com/fashion/evayang/20170416/htmlyaochen.jpg",
+					"http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170415/ccaefbac89ba4dd9aab94a485773dcb0.jpg",
+					"http://mat1.gtimg.com/fashion/Huron/170407/ymmmm.jpg",
+					"http://mat1.gtimg.com/fashion/xudi/image/20170508/02.jpg",
+					"http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170415/a77c4992eaab41bda8468d712642e1ab.jpg",
+					"http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170408/a23464b5c1c6403fa430de69f470e920.jpg"
+					]	
+				}
+			}
+			var str = '';
+			for(var i=0;i<json.data.picUrl.length;i++){
+				str += '<img src="" data_url="'+json.data.picUrl[i]+'"><p>这是第'+i+'个</p>'
+			}
+			$(".outer").append(str)
+			var outerHeight = $('.outer').height();
+			var imgTop = 0;
+			for(var i=0;i<$(".outer>img").length;i++){
+				if($(".outer>img").eq(i).offset().top < $('.outer').height()){
+					$(".outer>img").eq(i).attr("src",$(".outer>img").eq(i).attr("data_url"))
+				}
+			}
+			$('.outer').scroll(function(){
+				console.log($(".outer>img").eq(5).offset().top)
+				for(var i=0;i<$(".outer>img").length;i++){
+					if($(".outer>img").eq(i).offset().top < $('.outer').height()){
+						$(".outer>img").eq(i).attr("src",$(".outer>img").eq(i).attr("data_url"))
+					}
+				}	
+			})
+			
+		</script>
+		
+	</body>
+</html>

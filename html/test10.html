@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css"/>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			img{
+				border: 0;
+			}
+			.outerBox{
+				width: 1100px;height: 800px;overflow-y: auto;
+			}
+			/*楼号*/
+			.outerBox .outerList{
+				width: 100%;overflow: hidden;
+			}
+			.outerBox .outerList h3{
+				width: 100px;height: 20px;padding-top: 10px;float: left;margin-left: 20px;
+			}
+			/*展开/隐藏*/
+			.outerBox .outerList .ExpandHide{
+				float: left;width: 100px;height: 20px;margin-top: 15px;margin-left: 500px;cursor: pointer;
+			}
+			.outerBox .outerList .ExpandHide span{
+				display: block;line-height: 20px;font-size: 13px;float: left;margin-right: 3px;
+			}
+			.outerBox .outerList .ExpandHide img{
+				width: 20px;height: 20px;float: left;
+			}
+			.outerBox .outerList .ExpandHide i{
+				display: none;
+			}
+			.outerBox .outerList .funct{
+				width: 100px;height: 30px;float: right;margin-top: 15px;
+			}
+			.outerBox .outerList .funct img{
+				float: left;width: 20px;height: 20px;margin-right: 10px;cursor: pointer;
+			}
+			.outerBox .outerList .outerListNav{
+				width: 100%;height: 50px;background: aquamarine;margin-bottom: 10px;
+			}
+			/*户号*/
+			/*每单元*/
+			.outerBox .outerList .unitList{
+				width: auto;height: 600px;margin: 5px 10px 15px 10px;float: left;
+				-moz-user-select: none;-khtml-user-select: none;user-select: none;
+			}
+			/*每单元里的单元号部分*/
+			.outerBox .outerList .unitList .unitListTop{
+				height: 40px;width: 100%;
+			}
+			.outerBox .outerList .unitList .unitListTop h3{
+				width: 50px;
+			}
+			.outerBox .outerList .unitList .unitListTop .unitRevise{
+				float: right;margin: 10px 5px 0 0;
+			}
+			.outerBox .outerList .unitList .unitListTop .unitRevise img{
+				width: 20px;height: 20px;float: left;margin-right: 5px;
+			}
+			/*每单元里的户号部分*/
+			.outerBox .outerList .unitList table{
+				width: auto;overflow-y: auto;max-height: 410px;overflow-y: auto;
+			}
+			.outerBox .outerList .unitList table tr{
+				width: auto;height: 42.2px;
+			}
+			.outerBox .outerList .unitList table tr td{
+				display: inline-block;width: 61.5px;height: 40px;background: #DDD;margin: 1.1px;text-align: center;line-height: 40px;
+				cursor: pointer;float: left;border: 0;
+			}
+			.outerBox .outerList .unitList table tr td:hover{
+				background: #CCC;
+			}
+			/*每单元里的绑定户型部分*/
+			.outerBox .outerList .unitList .unitListBottom{
+				width: 100%;height: 40px;
+			}
+			.outerBox .outerList .unitList .unitListBottom span{
+				display: inline-block;width: 61.5px;height: 40px;background: #78909c;margin:0 1.1px 0 1.1px;
+				text-align: center;line-height: 40px;cursor: pointer;font-size: 14px;color: #FFF;
+			}
+			/*户号管理外加滚动条(自己项目)*/
+			/* content_3 scrollbar */
+			.houseUnit_list>.mCustomScrollBox>.mCSB_scrollTools{
+				height:94%;
+				top:3%;
+			}
+			.houseUnit_list .mCSB_scrollTools .mCSB_draggerRail{
+				width:0;
+				border-right:1px dashed #DDD;position: absolute;left: -7px;
+			}
+			.houseUnit_list .mCSB_scrollTools .mCSB_dragger{
+				height:11px;
+			}
+			.houseUnit_list .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+				width:11px;
+				-webkit-border-radius:11px;
+				-moz-border-radius:11px;
+				border-radius:11px;
+				background:#aaa;position: absolute;left: -15px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<select name="" class="select" style="width: 150px;height: 30px;">
+			<option value="" style="display: none;">楼盘名称-楼盘切换</option>
+			<option value="1">楼盘名称-望月公寓</option>
+			<option value="2">楼盘名称-三坝雅苑</option>
+			<option value="3">楼盘名称-福明小区</option>
+			<option value="4">楼盘名称-现代城</option>
+		</select>
+		<div class="outerBox">
+			<!--<div class="outerList"><div class="outerListNav"></div><ul><li></li></ul></div>-->
+		</div>
+		<script type="text/javascript" src="jquery-1.11.3.js"></script>
+		<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script type="text/javascript">
+
+//		发送楼盘名称获取楼号
+		var buildName = document.getElementsByClassName("select")[0];
+		buildName.onchange = function(){
+			var num = this.value;
+			$.ajax({
+				type:"post",
+				url:"http://192.168.2.144/dingfang/public/admin/houseno/",
+				data:{
+					"projectNumber" : num,
+				},
+				success:function(res){
+					var Res = eval('(' + res + ')');
+					var Data = Res.data;
+					var str = "";
+					for(var i=0;i<Data.length;i++){
+						str+='<div class="outerList"><div class="outerListNav"><h3>'+Data[i].name+'楼</h3><div class="ExpandHide"><span>展开/隐藏</span><img src=""><i class="num">'+Data[i].id+'</i></div><div class="funct"><img src=""><img src=""><img src=""></div></div></div>'
+					}
+					$(".outerBox").append(str);
+					btnClick();
+				},
+				error:function(){
+					
+				}
+			});
+		}
+		
+//		ajax获取对应楼号的单元单元
+			
+			function btnClick(){
+				var listBtn = document.getElementsByClassName("ExpandHide");
+				
+				for(var i=0;i<listBtn.length;i++){
+					listBtn[i].index = i;
+					listBtn[i].onclick = function (){
+						var that = this;
+						var num = document.getElementsByClassName("num");
+						var value = num[this.index].innerHTML;
+						$.ajax({
+							type:"post",
+							url:"http://192.168.2.144/dingfang/public/admin/houseno/",
+							data:{
+								"projectNumber":buildName.value,
+								"buildingNumber":value,
+							},
+							success:function(res){
+								console.log(res)
+								var Res = eval('(' + res + ')');
+								var str = "";
+								if(Res.code == "true"){
+									var unit = Res.data;
+									for(var i=0;i<unit.length;i++){
+										str+='<div class="unitList"><div class="unitListTop"><h3>'+unit[i].unitId+'单元</h3><div class="unitRevise"><img src=""><img src=""><img src=""></div></div><table border="1" class="listContent content_3">'
+										var account = unit[i].level;
+										
+										for(j in account){
+											var houseId = account[j].houseId;
+											var levelId = account[j].levelId;
+											str+='<tr>'
+											var Length = account[j].houseId.length;
+											console.log(Length);
+											var arr = [];
+											arr.push(Length);
+											var max= arr[0];
+											console.log(max);
+											for(var n=0;n<arr.length;n++){
+												if(max<arr[n]){
+													max = arr[n];
+												}
+											}
+											
+											console.log(max)
+										
+											for(var k=0;k<houseId.length;k++){
+											
+												str+='<td>'+houseId[k]+'</td>'
+							
+											}
+											str+='</tr>'
+											
+											
+										}
+										str+='</table><div class="unitListBottom">'
+										for(var m=0;m<max;m++){
+											str+='<span>绑定户型</span>'
+										}
+										str+='</div></div>'
+									}
+								
+									$(".outerList").eq(that.index).append(str)
+									//			右边小滚动条
+									$(".listContent").mCustomScrollbar({
+						
+										scrollInertia:600,
+									
+										autoDraggerLength:false	
+									});	
+									
+								}
+								
+							},
+							error:function(){
+								alert("error");
+							}
+						});
+					}
+				}			
+			}
+
+			
+			
+		</script>
+	</body>
+</html>

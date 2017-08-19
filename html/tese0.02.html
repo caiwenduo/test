@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+　　<html>
+　　<head>
+　　<title>多选框选中状态</title>
+　　<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+　　</head>
+　　<body>
+　　<input type="checkbox" name="" value="0" class="checkxh"><label>1</label>
+　　<input type="checkbox" name="" value="0" class="checkxh"><label>1</label>
+　　<input type="checkbox" name="" value="0" class="checkxh"><label>1</label>
+　　<input type="checkbox" name="" value="0" class="checkxh"><label>1</label>
+　　<input type="checkbox" name="" value="0" class="checkxh"><label>1</label>
+	<div class="box">
+		
+	</div>
+ 	<script type="text/javascript">
+ 　　　　$('.checkxh').val([1]);
+ 		$(".checkxh").change(function(){
+ 			if($(this).val() == 0){
+ 				$(this).val(1);
+ 			}else if($(this).val() == 1){
+ 				$(this).val(0);
+ 			}
+ 			for(var i=0;i<$(".checkxh").length;i++){
+ 				console.log($(".checkxh").eq(i).val());
+ 				$(".box").append($(".checkxh").eq(i).val());
+ 			}
+ 		})
+ 		$.ajax({
+ 			type:"post",
+ 			url:"http://www.df-house.com/system/public/Index/raffle/getConf",
+ 			async:true,
+ 			data : {
+ 				"key_name" : "1235"
+ 			},
+ 			success : function(res){
+ 				console.log(JSON.parse(res));
+ 			}
+ 		});
+ 　　</script>
+　　</body>
+　　</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			div.header{
+				width: 100%;height: 100px;background: #EEE;overflow: hidden;
+			}
+			div.header_nav{
+				width: 100%;height: 40px;margin-top: 60px;
+			}
+			div.header_nav>div{
+				width: 150px;height: 40px;float: left;margin: 0 8px;background: #f5f5f5;border-radius: 3px 3px 0 0;text-align: center;
+				line-height: 40px;font-size: 13px;
+			}
+			div.header_nav>div.header_nav_list_active{
+				background: #FFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<div class="header_nav">
+				<div data_id="1" class="header_nav_list">第一栏</div>
+				<div data_id="2" class="header_nav_list">第二栏</div>
+				<div data_id="3" class="header_nav_list">第三栏</div>
+				<div data_id="4" class="header_nav_list">第四栏</div>
+				<div data_id="5" class="header_nav_list">第五栏</div>
+			</div>
+		</div>
+		<div class="content">
+			
+		</div>
+		<script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			$("div.header_nav_list").click(function(){
+				$("div.header_nav_list").removeClass("header_nav_list_active");
+				$(this).addClass("header_nav_list_active");
+				if($(this).attr("data_id")==1){
+					$("div.content").load("css3基础旋转.html");
+					return;
+				}
+				if($(this).attr("data_id")==2){
+					$("div.content").load("div边框来回滚动.html");
+					return;
+				}
+				if($(this).attr("data_id")==3){
+					$("div.content").load("城市三联动.html");
+					return;
+				}
+				if($(this).attr("data_id")==4){
+					$("div.content").load("imgUp.html");
+					return;
+				}
+				if($(this).attr("data_id")==5){
+					$("div.content").load("newAdd.html");
+					return;
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			 }
+			 html,body{
+			 	width: 1100px;
+			 }
+			 li{
+			 	list-style: none;
+			 }
+			 .CheckedNavOuter{
+			 	width: 1100px;height: 50px;background: #78909c;overflow: hidden;
+			 }
+			 .CheckedNav{
+			 	width: 1050px;height: 40px;margin: 10px auto;
+			 }
+			 .CheckedNav li{
+			 	width: 110px;height: 40px;float: left;margin-right: 10px;background: #FFF;border-radius: 3px 3px 0 0;text-align: center;
+			 	line-height: 40px;font-size: 13px;cursor: pointer;
+			 }
+			 .CheckedNav .reorder img{
+			 	vertical-align: middle;margin-right: 5px;border-radius: 50%;
+			 }
+			 .ListOuter{
+			 	width: 1100px;height: 600px;padding: 20px 0 0 0;
+			 }
+			 /*222222*/
+			.ListOuter .serveOuter{
+				width: 1050px;height: 650px;background: beige;margin: 0 auto;
+			}
+			.ListOuter .listNav{
+				width: 160px;float: left;
+			}
+			.ListOuter .listNav li{
+				width: 160px;margin: 0 0 8px 0;
+			}
+			.ListOuter .listNav li p{
+				text-align: center;width: 100%;line-height: 35px;font-size: 13px;border: 1px solid gainsboro;border-radius: 3px;cursor: pointer;
+			}
+			.ListOuter .listNav li p:hover{
+				background: #D0B9A0;
+			}
+			.ListOuter .listNav li p span{
+				width: 35px;height: 35px;float: right;font-size: 20px;color: #000;margin: 0;line-height: 35px;text-align: center;border: 0;
+			}
+			.ListOuter .listNav li .select span{
+				display: block;height: 25px;border: 1px solid gainsboro;font-size: 11px;width: 130px;margin: 2px auto;text-align: center;line-height: 25px;
+				cursor: pointer;
+			}
+			.ListOuter .listNav li .select span:hover{
+				background: beige;color: goldenrod;
+			}
+			/*右边内容*/
+			.listMain{
+				width: 800px;height: 600px;border: 1px solid gainsboro;border-radius: 3px;float: right;padding: 20px 30px;
+			}
+			.listMain ol{
+				width: 800px;
+			}
+			.listMain ol li{
+				width: 800px;
+			}
+			.listMain ol li .ListMainTittle{
+				width: 795px;height: 38px;background: #EFEFEF;margin: 0 0 5px 0;font-size: 15px;line-height: 30px;padding: 0 0 0 5px;float: left;
+			}
+			.listMain ol li .ListMainTittle div{
+				float: right;width: 38px;height: 38px;text-align: center;line-height: 30px;font-size: 20px;cursor: pointer;
+			}
+			.listMain ol li .ListMainList{
+				width: 800px;float: left;
+			}
+			.ListMainList ul li{
+				border-bottom: 1px solid #CCCCCC;padding-bottom: 10px;
+			}
+			.ListMainList ul li .ListMainList_time{
+				width: 100%;height: 30px;line-height: 30px;font-size: 13px;
+			}
+			.ListMainList ul li .ListMainList_time p{
+				float: right;
+			}
+			.ListMainList ul li .ListMainList_img{
+				width: 100%;
+			}
+			.ListMainList ul li .ListMainList_img img{
+				width: 110px;margin: 0 3px 3px 3px;
+			}
+			.ListMainList ul li .ListMainList_main{
+				width: 100%;overflow: hidden;font-size: 12px;line-height: 18px;
+			}
+			.ListMainList ul li .ListMainList_main span{
+				color: #008000;
+			}
+			/*装修施工内容*/
+			.decConLeftOuter{
+				width: 160px;float: left;
+			}
+			.decConLeftOuter .decConLeftSelect{
+				width: 160px;display: block;height: 38px;margin: 0 0 8px 0;cursor: pointer;outline: none;
+				border-radius: 3px;
+			}
+			.decConRightOuter{
+				width: 800px;height: 600px;border: 1px solid gainsboro;border-radius: 3px;float: right;padding: 20px 30px;
+			}
+			.decConRightOuter .decConRightList{
+				width: 800px;
+			}
+			.decConRightOuter .decConRightList li{
+				width: 800px;
+			}
+			.decConRightOuter .decConRightList li .ListMainTit{
+				width: 795px;height: 38px;background: #EFEFEF;margin: 5px 0 0 0;font-size: 15px;line-height: 38px;padding: 0 0 0 5px;float: left;
+			}
+			.decConRightOuter .decConRightList li .ListMainTit div{
+				float: right;width: 38px;height: 38px;text-align: center;line-height: 38px;font-size: 20px;cursor: pointer;
+			}
+			.decConRightOuter .decConRightList li .ListMainTitList li{
+				width: 800px;height: 38px;border-bottom: 1px solid gray;clear: both;
+			}
+			.decConRightOuter .decConRightList li .ListMainTitList li span:nth-child(1){
+				font-size: 12px;float: left;width: 70px;line-height: 38px;
+			}
+			.decConRightOuter .decConRightList li .ListMainTitList li span:nth-child(2){
+				font-size: 12px;float: left;width: 680px;line-height: 38px;
+			}
+			.decConRightOuter .decConRightList li .ListMainTitList li span:nth-child(3){
+				font-size: 12px;float: left;width: 50px;line-height: 38px;cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="CheckedOuter">
+			<div class="CheckedNavOuter">
+				<div class="CheckedNav">
+					<ul>
+						<li onclick="newPengingOrder()">待审核</li>
+						<li onclick="newAnyOrder()">已审核</li>
+					</ul>
+				</div>
+			</div>
+			<div class="ListOuter">
+				
+			</div>	
+		</div>
+		<script type="text/javascript" src="jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+//		导航部分
+			$(".CheckedNav li").eq(0).css("background","#FFF");
+			$(".CheckedNav li").eq(0).siblings().css("background","#CCC");
+			$(".CheckedNav li").click(function(){
+				$(this).css("background","#FFF");
+				$(this).siblings().css("background","#CCC");
+			});
+//			右边内容部分
+			$(".ListMainTitList").hide();
+			$(".ListMainTit div").click(function(){
+				console.log(1)
+				$(".ListMainTit div").each(function(){
+					$(this).css({"transform":"rotateZ(0deg)","transition":"1s"});
+					$(this).parent().next(".ListMainTitList").hide(500);
+				})
+				$(this).css({"transform":"rotateZ(90deg)","transition":"1s"});
+				$(this).parent().next(".ListMainTitList").show(500);
+			})
+		</script>
+		
+	</body>
+</html>

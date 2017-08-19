@@ -1,0 +1,155 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td,ins,hr,select{
+	margin: 0px;padding: 0px;
+}
+li{
+	text-align: start;list-style: none;display: block;
+}
+a{
+	text-decoration: none;
+}
+.banner_pic{
+	width: 100%;height: 4rem;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    width: 100%;height: 100%;background: rgba(214,241,211,0.8);
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-slide>img{
+	width: 100%;height: 100%;
+}
+.sheji{
+	width: 100%;padding: 0.15rem 0 0.25rem 0;position: relative;text-align: center;border-bottom: 1px solid rgba(222,222,222,0.3);
+}
+.sheji>img{
+	width: 0.7rem;height: 0.7rem;position: absolute;top: -0.3rem;left: 0.2rem;z-index: 99;border-radius: 50%;
+}
+.sheji>span{
+	font-size: 0.2rem;color: #444;display: block;
+}
+.moreBrand{
+	width: 6.1rem;padding: 0.2rem 0.15rem;
+}
+.moreBrand>p{
+	text-align: center;font-size: 0.25rem;color: #333;
+}
+.moreBrand>div{
+	overflow: hidden;
+}
+.moreBrand>div>.brand{
+	width: 1.525rem;height: 1rem;float: left;
+}
+.moreBrand>div>.brand>img{
+	width: 1.4rem;height: 0.9rem;display: block;margin: 0.2rem auto;
+}
+.moreBrand>span{
+	color: #333;font-size: 0.2rem;display: block;text-align: center;padding: 0.2rem 0 0 0;
+}
+.picAndTitle{
+	width: 6.1rem;background: rgba(222,222,222,0.3);padding: 0.15rem;overflow: hidden;padding-bottom: 0;
+}
+.picAndTitle>h3{
+	text-align: center;font-size: 0.25rem;color: #333;padding: 0.2rem 0;font-weight: 500;
+}
+.picAndTitle>p{
+	font-size: 0.2rem;color: #444;padding: 0 0 0.2rem 0;
+}
+.picAndTitle>img{
+	width: 6.1rem;height: 4rem;display: block;
+}
+.picAndTitle>span{
+	display: block;text-align: center;font-size: 0.2rem;color: #444;padding: 0.1rem 0 0.25rem 0;
+}
+.others_project{/*当前楼盘楼盘*/
+	padding: 0.15rem;border-bottom: 0.2rem solid rgba(222,222,222,0.3);
+}
+.others_project>h3{
+	font-size: 0.25rem;color: #111;font-weight: 500;
+}
+.others_project>dl{
+	display: flex;justify-content: flex-start;border-top: 1px solid rgba(222,222,222,0.3);padding: 0.25rem 0;
+}
+.others_project>dl:nth-child(2){
+	border: 0;
+}
+.others_project>dl>dt{
+	width: 1.6rem;height: 1.6rem;margin-right: 0.2rem;
+}
+.others_project>dl>dt>img{
+	width: 100%;height: 100%;
+}
+.others_project>dl>dd{
+	
+}
+.others_project>dl>dd>h3{
+	font-size: 0.25rem;padding-bottom: 0.1rem;font-weight: 500;color: #333;
+}
+.others_project>dl>dd>p{
+	font-size: 0.2rem;color: #666;
+}
+.others_project>dl>dd>p:nth-child(2){
+	font-size: 0.35rem;color: orange;width: 100%;text-align: right;margin-top: -0.4rem;
+}
+.comment{/*评论*/
+	padding: 0.15rem 0.15rem 0 0.15rem;
+}
+.comment>h3{
+	font-size: 0.25rem;color: #111;padding: 0 0 0.1rem 0;font-weight: 500;
+}
+.comment>h3>span{
+	font-size: 0.25rem;color: #888;float: right;
+}
+.comment>dl{
+	display: flex;justify-content: flex-start;border-top: 1px solid rgba(222,222,222,0.3);padding: 0.2rem 0;
+}
+.comment>dl:nth-child(2){
+	border: 0;
+}
+.comment>dl>dt{
+	width: 0.8rem;height: 0.8rem;float: left;margin-right: 0.2rem;
+}
+.comment>dl>dt>img{
+	width: 0.8rem;height: 0.8rem;display: block;border-radius: 50%;
+}
+.comment>dl>dd{
+	float: left;width: 5.3rem;
+}
+.comment>dl>dd>h3{
+	font-size: 0.2rem;color: #777;padding-bottom: 0.1rem;font-weight: 500;
+}
+.comment>dl>dd>h3>span{
+	float: right;font-size: 0.2rem;font-weight: 400;
+}
+.comment>dl>dd>h3>span>img{
+	width: 0.2rem;height: 0.2rem;margin-right: 0.05rem;
+}
+.comment>dl>dd>p{
+	font-size: 0.2rem;color: #444;padding-bottom: 0.1rem;line-height: 0.28rem;
+}
+.comment>dl>dd>p>img{
+	width: 0.2rem;height: 0.2rem;margin-right: 0.1rem;opacity: 0.6;
+}
+.comment>dl>dd>p>span{
+	margin-right: 0.3rem;display: inline-block;width: 0.6rem;
+}
+.more_comment{
+	width: 100%;height: 0.4rem;border: 1px solid rgba(222,222,222,0.3);border-right: 0;border-left: 0;padding: 0.1rem 0 0 0;
+}
+.more_comment>p{
+	text-align: center;font-size: 0.2rem;color: #888;
+}

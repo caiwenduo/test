@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,li{
+			list-style: none;
+		}
+		.element{
+			width: 25%;
+			float: left;
+			height: 300px;
+			background: yellow;
+		}
+		.element ul{
+			overflow: hidden;
+		}
+		.element ul li{
+			float: left;
+			background: #ccc;
+			padding: 5px;
+			border:1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="contain">
+	</div>
+	<script type="text/javascript" src="jquery-1.11.3.js"></script>
+	<script>
+		$.ajax({
+			type:"post",
+			url:"http://192.168.2.144/dingfang/public/admin/workbench",
+			async:true,
+			data : {
+				"projectNumber" : "2",
+			},
+			success : function(res){
+				var Res = eval('('+res+')');
+				console.log(Res);
+			},
+			error : function(res){
+				console.log(res)
+			}
+		});
+	</script>
+</body>
+</html>

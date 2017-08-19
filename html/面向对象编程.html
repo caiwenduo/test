@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js面向对象编程</title>
+	</head>
+	<body>
+		<script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			var person = new Object();
+			person.name = "caiwenduo";
+			person.age = "18";
+			person.getName = function(){
+				return this.name
+			}
+//			console.log(person.getName());
+			
+			var person2 = {
+				name:"蚊子",
+				age:"20",
+				getAge : function(){
+					return this.age
+				}
+			}
+			
+			person2.Attr = "hahaha";
+//			console.log(person2.getAge())
+			
+			function animal( color ){
+				this.color = color;
+				animal.prototype.age = "5"
+			}
+			
+			var animal01 = new animal( "write" );
+			console.log( animal01 );
+		</script>
+	</body>
+</html>

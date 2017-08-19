@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/project.css"/>
+    <script type="text/javascript">
+    	document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + "px";
+		window.addEventListener("resize",function(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + "px";
+		},false);
+    </script>
+</head>
+<body>
+	<div class="content">
+		<div class="banner_pic"><!--轮播图-->
+			<div class="swiper-container swiper-container1">
+		        <div class="swiper-wrapper">
+		            {volist name="result['project_img']" id="img"}
+						<div class="swiper-slide"><img src="{$img.pic_url}"/></div>
+					{/volist}
+		        </div>
+		        <!-- Add Pagination -->
+		        <div class="swiper-pagination"></div>
+		        
+		    </div>
+		</div>
+		<div class="fangzhengyuxing">
+			<ul>
+				<li class="fangzhengyuxing_one">
+					<h3>{$result.pj_name}</h3><span>{$result.project_label}</span>
+				</li>
+				<li class="fangzhengyuxing_two">
+					<h3>均价&nbsp;25800.00/m²</h3>
+					<p>
+						地址 &nbsp; &nbsp;拱墅区杭行路284号<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><span><img src="img/address.png">地图</span></a>
+					</p>
+					<p>开盘 &nbsp; &nbsp;120800m²</p>
+					<p>交房 &nbsp;&nbsp;预计2020年8月交付</p>
+				</li>
+				<li class="fangzhengyuxing_three">
+					<p><span class="moreOrLess">展开更多<span class="jiantou">>>></span></span></p>
+					<div class="more_text">
+						<p><span class="title">售楼处</span> ： <span class="text">拱墅区人民大会堂,拱墅区人民大会堂,拱墅区人民大会堂,拱墅区人民大会堂</span></p>
+						<p>物业类型 ： <span class="text">方便物业</span></p>
+						<p>建筑类别 ： <span class="text">欧式类型</span></p>
+						<p>装修状况 ： <span class="text">装修进度80%</span></p>
+						<p><span class="title">住户数</span> ： <span class="text">4户</span></p>
+						<p><span class="title">容积率</span> ： <span class="text">25%</span></p>
+						<p><span class="title">绿化率</span> ： <span class="text">25%</span></p>
+						<p><span class="title">开发商</span> ： <span class="text">牛逼房地产开发有限公司</span></p>
+						<p>预售许可 ： <span class="text">你的醋暗示法脑残粉个库房你猜撒本办法设计开发部擦刷卡机法师法师跟我说复古色公司公司噶公司</span></p>
+						<p>物业公司 ： <span class="text">牛逼物业有限公司</span></p>
+						<p><span class="title">物业费</span> ： <span class="text">每年1000元</span></p>	
+					</div>
+				</li>
+				<li></li>
+			</ul>
+		</div>
+		<div class="others">
+			<div>
+				<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><div><img src="img/danwei1.png" /><span>开发单位 绿城地产集团</span></div></a>
+				<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><div><img src="img/xiangmujingli.png" /><span>项目经理 赵经理</span></div></a>
+				<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><div><img src="img/jingxinsheji.png" /><span>设计单位 浙江省建筑设计单位为</span></div></a>
+				<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><div><img src="img/pinpai.png" /><span>精装合作品牌</span></div></a>
+			</div>
+			<dl>
+				<dt><a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse">
+					<img src="img/raw_1480557982.png"/>
+					<div>
+						<h3>楼盘销售情况</h3>
+						<p>剩余可售房源<span>225</span>套,立即前往挑选>></p>
+					</div>
+				</a></dt>
+				<dd><a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse">
+					<img src="img/raw_1478450107.png"/>
+					<div>
+						<h3>精装方案</h3>
+						<p>共有<span>21</span>款精装方案,立即前往挑选>></p>
+					</div>
+					
+				<a/></dd>
+			</dl>
+		</div>
+		<div class="projectNews">
+			<h3>楼盘动态(3)<span>></span></h3>
+				<ul class="news_content">
+					<li>
+						<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><p>查看杭州房价网到我爱我家二手房网,二手房,租房实时动态,价格走势,帮您分析!我爱我家更多杭州房价网,倾心呈现,真实可靠,做您专业的经纪人!</p></a>
+						<span>2017-06-05 22:10<div><img src="img/eyes.png"/>12345</div></span>
+					</li>
+					<li>
+						<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><p>查看杭州房价网到我爱我家二手房网,二手房,租房实时动态,价格走势,帮您分析!我爱我家更多杭州房价网,倾心呈现,真实可靠,做您专业的经纪人!</p></a>
+						<span>2017-06-05 22:10<div><img src="img/eyes.png"/>12345</div></span>
+					</li>
+					<li>
+						<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><p>查看杭州房价网到我爱我家二手房网,二手房,租房实时动态,价格走势,帮您分析!我爱我家更多杭州房价网,倾心呈现,真实可靠,做您专业的经纪人!</p></a>
+						<span>2017-06-05 22:10<div><img src="img/eyes.png"/>12345</div></span>
+					</li>
+				</ul>
+		</div>
+		<div class="recommendedHouseHould">
+			<div class="recommendedHouseHould_title">
+				<h3>推荐户型</h3>
+				<span>></span>
+			</div>
+			<!-- Swiper -->
+		    <div class="swiper-container swiper-container2">
+		        <div class="swiper-wrapper">
+		            <div class="swiper-slide">
+		            	<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+		            		<dt><img src="img/houseImg.jpg"/></dt>
+		            		<dd>
+		            			<h3>A户型</h3>
+		            			<p>3室2厅2卫&nbsp;&nbsp;118m²</p>
+		            			<span>300万起</span>
+		            		</dd>
+		            	</dl></a>
+		            </div>
+		            <div class="swiper-slide">
+		            	<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+		            		<dt><img src="img/houseImg.jpg"/></dt>
+		            		<dd>
+		            			<h3>A户型</h3>
+		            			<p>3室2厅2卫&nbsp;&nbsp;118m²</p>
+		            			<span>300万起</span>
+		            		</dd>
+		            	</dl></a>
+		            </div>
+		            <div class="swiper-slide">
+		            	<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+		            		<dt><img src="img/houseImg.jpg"/></dt>
+		            		<dd>
+		            			<h3>A户型</h3>
+		            			<p>3室2厅2卫&nbsp;&nbsp;118m²</p>
+		            			<span>300万起</span>
+		            		</dd>
+		            	</dl></a>
+		            </div>
+		            <div class="swiper-slide">
+		            	<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+		            		<dt><img src="img/houseImg.jpg"/></dt>
+		            		<dd>
+		            			<h3>A户型</h3>
+		            			<p>3室2厅2卫&nbsp;&nbsp;118m²</p>
+		            			<span>300万起</span>
+		            		</dd>
+		            	</dl></a>
+		            </div>
+		            <div class="swiper-slide">
+		            	<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+		            		<dt><img src="img/houseImg.jpg"/></dt>
+		            		<dd>
+		            			<h3>A户型</h3>
+		            			<p>3室2厅2卫&nbsp;&nbsp;118m²</p>
+		            			<span>300万起</span>
+		            		</dd>
+		            	</dl></a>
+		            </div>
+		            <div class="swiper-slide">
+		            	<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+		            		<dt><img src="img/houseImg.jpg"/></dt>
+		            		<dd>
+		            			<h3>A户型</h3>
+		            			<p>3室2厅2卫&nbsp;&nbsp;118m²</p>
+		            			<span>300万起</span>
+		            		</dd>
+		            	</dl></a>
+		            </div>
+		            <div class="swiper-slide">
+		            	<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+		            		<dt><img src="img/houseImg.jpg"/></dt>
+		            		<dd>
+		            			<h3>A户型</h3>
+		            			<p>3室2厅2卫&nbsp;&nbsp;118m²</p>
+		            			<span>300万起</span>
+		            		</dd>
+		            	</dl></a>
+		            </div>
+		            <div class="swiper-slide">
+		            	<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+		            		<dt><img src="img/houseImg.jpg"/></dt>
+		            		<dd>
+		            			<h3>A户型</h3>
+		            			<p>3室2厅2卫&nbsp;&nbsp;118m²</p>
+		            			<span>300万起</span>
+		            		</dd>
+		            	</dl></a>
+		            </div>
+		            <div class="swiper-slide">
+		            	<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+		            		<dt><img src="img/houseImg.jpg"/></dt>
+		            		<dd>
+		            			<h3>A户型</h3>
+		            			<p>3室2厅2卫&nbsp;&nbsp;118m²</p>
+		            			<span>300万起</span>
+		            		</dd>
+		            	</dl></a>
+		            </div>
+		            <div class="swiper-slide">
+		            	<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+		            		<dt><img src="img/houseImg.jpg"/></dt>
+		            		<dd>
+		            			<h3>A户型</h3>
+		            			<p>3室2厅2卫&nbsp;&nbsp;118m²</p>
+		            			<span>300万起</span>
+		            		</dd>
+		            	</dl></a>
+		            </div>
+		        </div>
+		        <!-- Add Scrollbar -->
+		        <div class="swiper-scrollbar"></div>
+		    </div>
+		</div>
+		<div class="others_translation">
+	    	<div class="translation">
+	    		<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+	    			<dt><img src="img/raw_1480740965.png"/></dt>
+	    			<dd><span>商业配套</span></dd>
+	    		</dl></a>
+	    	</div>
+	    	<div class="translation">
+	    		<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+	    			<dt><img src="img/raw_1480740978.png"/></dt>
+	    			<dd><span>商业配套</span></dd>
+	    		</dl></a>
+	    	</div>
+	    	<div class="translation">
+	    		<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+	    			<dt><img src="img/raw_1480740986.png"/></dt>
+	    			<dd><span>商业配套</span></dd>
+	    		</dl></a>
+	    	</div>
+	    	<div class="translation">
+	    		<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+	    			<dt><img src="img/raw_1480741397.png"/></dt>
+	    			<dd><span>商业配套</span></dd>
+	    		</dl></a>
+	    	</div>
+	    </div>
+	    <div class="project_abstract"><!--项目简介-->
+	    	<h3>项目简介<span>></span></h3>
+	    	<span>
+	    		英文简历是使用英文写的简历。英文简历（resume）并无固定不变的单一形式，应聘者完全可以根据个人的具体情况来确定采用何种形式，
+	    		灵活设计。English Resume 一般来说，根据个人经历的不同侧重点，可以选用以下三种形式： ⑴以学历为主的简历 basic resume 
+	    		这种形式适应于应届毕业生或中学毕业后仍在待...
+	    	</span>
+	    </div>
+	    <div class="comment"><!--评论-->
+	    	<h3>评论 (22)<span>></span></h3>
+	    	<dl>
+	    		<dt><img src="img/raw_1458714518.png"/></dt>
+	    		<dd>
+	    			<h3>周雨晴<span><img src="img/bigHand.png"/>558</span></h3>
+	    			<p>这个楼盘可以,离学校好近呀。。 </p>
+	    			<p><span>03-02&nbsp;&nbsp;10 : 00</span><span><a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse">回复</a></span></p>
+	    		</dd>
+	    	</dl>
+	    	<dl>
+	    		<dt><img src="img/raw_1458714559.jpeg"/></dt>
+	    		<dd>
+	    			<h3>周雨晴<span><img src="img/bigHand.png"/>558</span></h3>
+	    			<p>这个楼盘可以,离学校好近呀。。可以来看看,,,,,最最最 关键一点就是 主要是周边有学校啊  啊啊啊 </p>
+	    			<p><span>03-02&nbsp;&nbsp;10 : 00</span><span><a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse">回复</a></span></p>
+	    		</dd>
+	    	</dl>
+	    </div>
+	    <div class="others_project">
+	    	<h3>该公司其他楼盘</h3>
+	    	<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+	    		<dt><img src="img/raw_1480592268.jpeg"/></dt>
+	    		<dd>
+	    			<h3>方正御星</h3>
+	    			<p>25000/元m²</p>
+	    			<p>拱墅区杭行路万达广场旁</p>
+	    			<p>剩余 58 套</p>
+	    			<p>精装交付 高赠送面积 高大上的花园值得你来</p>
+	    		</dd>
+	    	</dl></a>
+	    	<a href="http://sj.qq.com/myapp/detail.htm?apkName=com.dingfang.dfhouse"><dl>
+	    		<dt><img src="img/raw_1480575066.jpeg"/></dt>
+	    		<dd>
+	    			<h3>方正御星</h3>
+	    			<p>25000元/m²</p>
+	    			<p>拱墅区杭行路万达广场旁</p>
+	    			<p>剩余 58 套</p>
+	    			<p>精装交付 高赠送面积 高大上的花园值得你来</p>
+	    		</dd>
+	    	</dl></a>
+	    </div>
+	    <footer><!------ajax load内容------></footer>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/touch.js"></script>
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<script type="text/javascript">
+		$("footer").load('html/common.html');
+		var swiper = new Swiper('.swiper-container1', {
+	        pagination: '.swiper-pagination',
+	        paginationClickable: true,
+	        autoplay: 2000,
+		    autoplayDisableOnInteraction : false,
+		    paginationType : 'fraction',
+	    });
+	    var swiper2 = new Swiper('.swiper-container2', {
+	        scrollbar: '.swiper-scrollbar',
+	        scrollbarHide: false,
+	        centeredSlides: false,
+	        grabCursor: true,
+	        slidesPerView: 3,
+	        paginationClickable: true,
+	        spaceBetween: 20
+	    });
+		$(".moreOrLess").on("tap",function(){
+			if($(this).html() == '收起<span class="jiantou" style="transform: rotateZ(-90deg);">&gt;</span>'){
+				$(".more_text").hide(200);
+				$(this).html('展开更多<span class="jiantou">&gt;&gt;&gt;</span>')
+			}else{
+				$(".more_text").show(200);
+				$(this).html('收起<span class="jiantou">&gt;</span>');
+				$(".jiantou").css({"transform":"rotateZ(-90deg)"})
+			}
+			console.log($(this).html())
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.aa{
+				width: 0px;height: 0px;border-bottom: 20px solid #000;border-left: 20px solid transparent;border-right: 20px solid transparent;
+			}
+			.bb{
+				width: 40px;height: 40px;background: #000;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="file" id="abc" value="" /><button id="btn">提交</button>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			$("#btn").click(function(){
+				var formData = new FormData();
+				formData.append("file",$("#abc")[0].files[0]);
+				$.ajax({
+				    url: 'http://106.14.248.127:8080/api/v1/upload',
+				    type: 'POST',
+				    async:false,
+				    cache: false,
+				    data: formData,
+				    processData: false,
+				    contentType: false,
+				    success : function(res){
+				    	if(res.code==0){
+				    		imgSrc = res.access_url;
+				    		console.log(imgSrc)
+				    	}
+				    },
+				});	
+			})
+			
+		</script>
+	</body>
+</html>

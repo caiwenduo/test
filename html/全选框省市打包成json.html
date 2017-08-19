@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="outer2" style="border: 1px solid #008000;padding: 10px 0;">
+			<div class="proct">
+				<input class="province" data_id="1" status="0" type="checkbox" /><span>江西</span>
+				<div class="city">
+					<input data_id="111" type="checkbox" /><span>南昌市</span>
+					<input data_id="112" type="checkbox" /><span>九江市</span>
+					<input data_id="113" type="checkbox" /><span>瑞昌市</span>
+					<input data_id="114" type="checkbox" /><span>赣州市</span>
+					<input data_id="115" type="checkbox" /><span>宜春市</span>
+				</div>
+			</div><br/>
+			<div class="proct">
+				<input class="province" data_id="2" status="0" type="checkbox" /><span>江西2</span>
+				<div class="city">
+					<input data_id="111" type="checkbox" /><span>南昌市</span>
+					<input data_id="112" type="checkbox" /><span>九江市</span>
+					<input data_id="113" type="checkbox" /><span>瑞昌市</span>
+					<input data_id="114" type="checkbox" /><span>赣州市</span>
+					<input data_id="115" type="checkbox" /><span>宜春市</span>
+				</div>
+			</div><br/>
+			<div class="proct">
+				<input class="province" data_id="3" status="0" type="checkbox" /><span>湖北</span>
+				<div class="city">
+					<input data_id="111" type="checkbox" /><span>黄冈市</span>
+					<input data_id="112" type="checkbox" /><span>武汉市</span>
+					<input data_id="113" type="checkbox" /><span>黄龙士</span>
+				</div>
+			</div>
+			<button id="btn">提交</button>
+		</div>
+		<script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			$(".proct>input").change(function(){
+				if($(this).attr("status") == 0){
+					$(this).attr("status",1);
+					$(this).attr("checked","checked");
+					$(this).siblings(".city").children("input").attr("checked","checked");
+				}else if($(this).attr("status") == 1){
+					$(this).attr("status",0);
+					$(this).removeAttr("checked");
+					$(this).siblings(".city").children("input").removeAttr("checked");
+				}
+			})
+			
+			$("#btn").click(function(){
+				var jsonData =[];
+				for( var i = 0;i<$(".province").length;i++ ){
+					if($(".province").eq(i).is(":checked")){
+						var pro = {
+							"provinceId":$(".province").eq(i).attr("data_id"),
+							"cityId":[],
+						}
+						for(var j=0;j<$(".province").eq(i).siblings(".city").children("input").length;j++){
+							if($(".province").eq(i).siblings(".city").children("input").eq(j).is(":checked")){
+								pro.cityId.push( $(".province").eq(i).siblings(".city").children("input").eq(j).attr("data_id") );
+							}
+						};
+					}
+					jsonData.push( pro );
+				};
+				console.log( jsonData );
+			})
+		</script>
+	</body>
+</html>

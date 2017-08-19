@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea id="text-input" oninput="this.editor.update()"></textarea>
+		<div id="preview"></div>
+		<script type="text/javascript" src="markdown.js"></script>
+		<script type="text/javascript">
+			//编辑器(左,右)
+			function Editor(input, preview) {
+			    function Editor(input, preview) {
+			        this.update = function () {
+			          preview.innerHTML = markdown.toHTML(input.value);
+			        };
+			        input.editor = this;
+			        this.update();
+			      }
+			      var X = function (id) { return document.getElementById(id); };
+			      new Editor(X("text-input"), X("preview"));
+			}
+			var X = function (id) { return document.getElementById(id); };
+			new Editor(X("text-input"), X("preview"));	
+		</script>
+		
+	</body>
+</html>

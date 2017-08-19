@@ -1,0 +1,42 @@
+html,body,div{
+	margin:0;padding:0
+}
+html{
+	overflow:auto
+}
+body{
+	background:#0b053b;height:100%;min-height:720px;min-width:1200px;overflow:hidden;width:100%
+}
+body,div{
+	position:absolute
+}
+.gradual{
+	height:100%;width:100%
+}
+.gradual-top{
+	background:-webkit-linear-gradient(-80deg,rgba(23,14,82,.6) 0,rgba(23,14,82,0) 50%);left:0;top:0
+}
+.gradual-bottom{
+	background:-webkit-linear-gradient(100deg,rgba(23,14,82,.9) 0,rgba(23,14,82,0) 50%);bottom:0;right:0
+}
+.wrap-container{
+	background:url("http://p1.qhmsg.com/t01952073d228f9bc34.png");height:720px;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);
+	-moz-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);transform:translate(-50%,-50%);
+	width:1200px
+}
+.wrap-gradual{
+	background:-webkit-radial-gradient(500px 400px,rgba(255,255,255,.06),rgba(255,255,255,0));
+	background:-moz-radial-gradient(500px 400px,rgba(255,255,255,.06),rgba(255,255,255,0));
+	background:-ms-radial-gradient(500px 400px,rgba(255,255,255,.06),rgba(255,255,255,0));
+	background:-o-radial-gradient(500px 400px,rgba(255,255,255,.06),rgba(255,255,255,0));
+	background:radial-gradient(500px 400px,rgba(255,255,255,.06),rgba(255,255,255,0));
+	height:1000px;left:-100px;top:-400px;-webkit-transform:rotate(30deg);-moz-transform:rotate(30deg);
+	-ms-transform:rotate(30deg);-o-transform:rotate(30deg);transform:rotate(30deg);
+	width:1000px
+}
+.logo-bg{
+	background:url("http://p2.qhmsg.com/t01cccd9574c95c942c.png");height:280px;left:0;top:0;width:520px;
+}
+.wrap-ani{
+	background:url("http://p3.qhmsg.com/t019c9c3ade17436d8d.png");height:200px;left:53px;top:213px;width:630px;
+}

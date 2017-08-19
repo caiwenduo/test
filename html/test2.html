@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			.test{
+				width: 100%;height: 100px;min-width: 1000px;
+			}
+			.left{
+				width: 20%;min-width: 200px;height: 100px;background: greenyellow;float: left;
+			}
+			.right{
+				width: 80%;height: 100px;background: goldenrod;float: left;min-width: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test"><div class="left"></div><div class="right"></div></div>
+		<button onclick="btn(1)">0.0</button>
+		<button onclick="btn(2)">0.0</button>
+		<button onclick="btn(3)">0.0</button>
+		<script type="text/javascript">
+			var data = [[101,102,103,104,105],[201,202,203,204,205,206,207],[301,302,303,304,305,306]];
+			var lenArr = [];
+			for(var i = 0;i < data.length;i ++){
+				lenArr.push(data[i].length);
+			}
+			function getMax(obj){
+				var max = obj[0];
+				for(var i = 1;i < obj.length;i ++){
+					if(max < obj[i]){
+						max = obj[i];
+					}
+				}
+				return max;
+			}
+			var i = getMax(lenArr);
+			console.log(i);
+			function btn(res){
+				console.log(res);
+				return 8;
+				console.log(5)
+			}
+			console.log(btn(0.0))
+		</script>
+	</body>
+</html>

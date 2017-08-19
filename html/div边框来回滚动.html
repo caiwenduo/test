@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			div.outer{
+				width: 300px;height: 300px;margin: 0 auto;margin-top: 100px;position: relative;
+			}
+			div.pos1{
+				position: absolute;top: 0;left: 0;border: 1px solid orangered;border-left: 0;border-bottom: 0;
+			}
+			div.pos2{
+				position: absolute;bottom: 0;right: 0;border: 1px solid orangered;border-right: 0;border-top: 0;
+			}
+			div.outer2{
+				width: 300px;height: 300px;margin: 0 auto;margin-top: 10px;position: relative;
+			}
+			div.outer2>div.test1{
+				width: 0;height: 1px;position: absolute;top: 0;left: 0;background: green;
+			}
+			div.outer2>div.test2{
+				width: 1px;height: 0;position: absolute;top: 0;right: 0;background: green;
+			}
+			div.outer2>div.test3{
+				width: 0;height: 1px;position: absolute;bottom: 0;right: 0;background: green;
+			}
+			div.outer2>div.test4{
+				width: 1px;height: 0;position: absolute;bottom: 0;left: 0;background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="pos1"></div>
+			<div class="pos2"></div>
+		</div>
+		
+		
+		<div class="outer2">
+			<div class="test1"></div>
+			<div class="test2"></div>
+			<div class="test3"></div>
+			<div class="test4"></div>
+		</div>
+		
+		<script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			posOne();//例子1
+			function posOne(){
+				$("div.pos1").css({"width":"0","height":"0"});
+				$("div.pos2").css({"width":"0","height":"0"});
+				$("div.pos1").animate({"width":"100%"},500,posTwo);
+			}
+			function posTwo(){
+				$("div.pos1").animate({"height":"100%"},500,posThree);
+			}
+			function posThree(){
+				$("div.pos2").animate({"width":"100%"},500,posFour);
+			}
+			function posFour(){
+				$("div.pos2").animate({"height":"100%"},500,posOne);
+			}
+			
+			testOne();//例子2
+			function testOne(){
+				$("div.test4").height(0);
+				$("div.test1").animate({"width":"100%"},500,testTwo);
+			}
+			function testTwo(){
+				$("div.test1").width(0);
+				$("div.test2").animate({"height":"100%"},500,testThree);
+			}
+			function testThree(){
+				$("div.test2").height(0);
+				$("div.test3").animate({"width":"100%"},500,testFour);
+			}
+			function testFour(){
+				$("div.test3").width(0);
+				$("div.test4").animate({"height":"100%"},500,testOne);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<video width="800" height="">
+			<source src="myvideo.mp4" type="video/mp4">12</source>
+			<source src="myvideo.ogv" type="video/ogg">34</source>
+			<source src="myvideo.webm" type="video/webm">56</source>
+			<object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf">
+				<param name="movie" value="myvideo.swf" />
+				<param name="flashvars" value="autostart=true&amp;file=myvideo.swf" />
+			</object>
+			当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
+		</video>
+		<input type="file" name="housepic" id="housepic" value="" />
+		<button onclick="subM()">提交</button>
+		<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+		<script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+		<script type="text/javascript">
+		function subM(){
+			var data = new FormData();
+			data.append("houseoic" , $("#housepic")[0].files[0]);
+			console.log(data);
+			$.ajax({
+				type:"post",
+				url:"http://192.168.0.84/dingfang/public/admin/house/add.html",
+				dataType:"json",
+				data:data,
+				processData:false,
+				contentType:false,
+				success : function(res){
+					console.log(res);				
+				},
+				error: function(){
+					alert("error");
+				}
+			});
+		}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="build/react.js"></script>
+		<script src="build/react-dom.js"></script>
+		<script src="build/browser.min.js"></script>
+	</head>
+	<body>
+		<div id="test_one"></div>
+		<div id="test_two"></div>
+		<div id="test_three"></div>
+		<div id="test_four"></div>
+		<div id="test_five"></div>
+		<div id="example"></div>
+		<script type="text/babel">
+			ReactDOM.render(
+				<h2>你好呀,react</h2>,
+				document.getElementById("test_one")
+			);
+			var people = ['xiaoming','xiaohong','xiaohua','wanger'];
+			ReactDOM.render(
+			  <div>
+			  {
+			    people.map(function (name,index) {
+			      return <h2 key={index}>Hello, {name}!</h2>
+			    })
+			  }
+			  </div>,
+			  document.getElementById('test_two')
+			);
+			
+			var arr = [
+				<h2 key="0">你好呀</h2>,
+				<h2 key="1">傻逼</h2>,
+				<h2 key="2">多多</h2>,
+				<h2 key="3">哈哈</h2>
+			]
+			ReactDOM.render(
+				<div>{arr}</div>,
+				document.getElementById("test_three")
+			)
+		</script>
+	</body>
+</html>

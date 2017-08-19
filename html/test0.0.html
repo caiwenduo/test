@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="test" id="test" value="" />
+		<button id="btn">点</button>
+		<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+		function getRequestAttr() {
+			var url = location.search;
+			var theRequest = new Object();
+			if (url.indexOf("?") != -1) {
+				var str = url.substr(1);
+				strs = str.split("&");
+				for ( var i = 0; i < strs.length; i++) {
+				theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+				}
+			}
+			console.log(theRequest);
+		}
+		getRequestAttr();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;font-size: 14px;
+			}
+			html,body{
+				height: 100%;min-height: 600px;
+			}
+			div.pro_city_area_outer{
+				width: 250px;height: 100%;margin: 0 auto;position: relative;
+			}
+			div.list_outer{
+				width: 100%;height: 100%;background: rgba(0,0,0,0.2);overflow-y: auto;
+			}
+			div.province{
+				width: 100%;height: auto;margin: 5px 0;
+			}
+			div.province>p{
+				display: -webkit-box;display: -moz-box;display: flex;display: -webkit-flex;justify-content: space-between;-webkit-justify-content: space-between;
+				-webkit-box-pack: justify;align-items: center;-webkit-align-items: center;-webkit-box-align: center;background: rgba(0,0,0,0.1);padding: 5px 0;
+				color: #EEE;transition: 200ms;
+			}
+			div.province>p.province_active{
+				color: deepskyblue;
+			}
+			div.province>p:hover{
+				background: rgba(0,0,0,0.2);cursor: pointer;color: deepskyblue;
+			}
+			div.province>p>span.province_name{
+				margin-left: 10px;
+			}
+			div.province>p>span.open{
+				margin-right: 10px;transform: rotateZ(0deg);transition: 300ms;
+			}
+			div.province>p>span.open_active{
+				transform: rotateZ(90deg);transition: 300ms;
+			}
+			div.city_list{
+				height: auto;overflow: hidden;display: none;
+			}
+			div.city_list>p{
+				color: #666;margin: 4px 0;padding: 1px 0;padding-left: 10px;width: calc(100% - 10px);
+			}
+			div.city_list>p:hover{
+				background: rgba(0,0,0,0.1);color: #00C1B3;cursor: pointer;transition: 200ms;
+			}
+			div.city_list>p.city_active{
+				background: rgba(0,0,0,0.1);color: #00C1B3;cursor: pointer;
+			}
+			div.area_show{
+				display: none;
+			}
+			div.pos_area{
+				width: 200px;background: rgba(0,0,0,0.1);height: 100%;position: absolute;left: 250px;top: 0;display: none;
+			}
+			div.pos_area>p{
+				color: #666;margin: 4px 0;
+			}
+			div.pos_area>p:hover{
+				background: rgba(0,0,0,0.1);color: deepskyblue;transition: 200ms;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="pro_city_area_outer">
+			<div class="list_outer"></div>
+			<div class="pos_area"></div>
+		</div>
+		
+		<script type="text/javascript" src="../jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="../js/address.js"></script>
+		<script type="text/javascript">
+			console.log(address)
+			address=address.data;
+			var str = '';
+			$.each(address, function(i) {
+				str += '<div class="province">'
+				+'<p status="0" onclick="province_open(this)"><span data_id="'+address[i].province_id+'" class="province_name">'+address[i].province_name+'</span><span class="open">></span></p>'
+				+'<div class="city_list">';
+				$.each(address[i].citys, function(j) {
+					str += '<p class="city_name" data_id="'+address[i].citys[j].city_id+'" onclick="city_open(this)">'+address[i].citys[j].city_name+'</p><div class="area_show">';
+					$.each(address[i].citys[j].areas, function(k) {
+						str += '<p data_id="'+address[i].citys[j].areas[k].area_id+'">'+address[i].citys[j].areas[k].area_name+'</p>'
+					});
+					str += '</div>';
+				});
+				str += '</div></div>';
+			});
+			$("div.list_outer").html( str );
+			function province_open(obj){
+				if($(obj).attr("status")==0){
+					//先把其他的全关闭
+					$("div.province>p").attr("status",0);
+					$("div.province>p").removeClass("province_active");
+					$("div.province>p>span.open").removeClass("open_active");
+					$("div.province>div.city_list").hide(300);
+					$("p.city_name").removeClass("city_active");
+					$("div.pos_area").hide(200);//区隐藏
+					//打开当前				
+					$(obj).addClass("province_active");
+					$(obj).siblings("div.city_list").show(300);
+					$(obj).attr("status",1);
+					$(obj).children("span.open").addClass("open_active");
+					return;
+				}
+				if($(obj).attr("status")==1){
+					$(obj).removeClass("province_active");
+					$(obj).siblings("div.city_list").hide(300);
+					$(obj).attr("status",0);
+					$(obj).children("span.open").removeClass("open_active");
+					$("p.city_name").removeClass("city_active");
+					$("div.pos_area").hide(200);//区隐藏
+					return;
+				}
+				
+			}
+			function city_open(obj){
+				$("div.pos_area").html( $(obj).next().html() );
+				$("div.pos_area").show(200);
+				$("p.city_name").removeClass("city_active")
+				$(obj).addClass("city_active");
+			}
+		</script>
+	</body>
+</html>

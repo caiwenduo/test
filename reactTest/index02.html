@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="build/react.js"></script>
+		<script src="build/react-dom.js"></script>
+		<script src="build/browser.min.js"></script>
+	</head>
+	<body>
+		<div id="test_one"></div>
+		<div id="test_two"></div>
+		<div id="test_three"></div>
+		<div id="four"></div>
+		<script type="text/babel">
+			var HelloMessage = React.createClass({
+				render:function(){
+					return <h2>hello{this.props.children}</h2>
+				}
+			});
+			ReactDOM.render(
+				<HelloMessage name="你是大傻逼呀">
+					<span>你试试呀</span>
+					<span>试试就试试</span>
+				</HelloMessage>,
+				document.getElementById("test_one")
+			)
+			
+			var HelloClick = React.createClass({
+				handleClick:function(){
+					this.refs.ref_click.focus();
+					alert(this )
+				},
+				
+				render: function(){
+					return (
+					<div>
+						<input type="text" ref="ref_click" />
+						<button onClick={this.handleClick}>点我吧</button>
+					</div>
+					)
+				}
+			})
+			
+			ReactDOM.render(
+				<HelloClick />,
+				document.getElementById("test_two")
+			)
+			
+			
+			var Input = React.createClass({
+				//状态 可变
+				getInitialState:function(){
+					return{
+						value:"hello"
+					}
+				},
+				handleChange:function(e){
+					this.setState({value:e.target.value})
+				},
+				render:function(){
+					return(
+						<div>
+							<input type="text" value={this.state.value} onChange={this.handleChange} />
+							<span>{this.state.value}</span>
+						</div>
+					)
+				}
+			})
+			
+			ReactDOM.render(<Input />,document.getElementById("test_three"));
+		</script>
+	</body>
+</html>

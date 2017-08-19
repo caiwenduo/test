@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="file" name="file" id="file" value="" />
+		<button onclick="ajaxFileUpload()">提交</button>
+		<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+		<script type="text/javascript">
+//			function ajaxFileUpload(){
+//		        $.ajaxFileUpload({
+//		                url:'http://106.14.248.127:8080/api/v1/upload',//用于文件上传的服务器端请求地址
+//		                secureuri:false ,//一般设置为false
+//		                fileElementId:'file',//文件上传控件的id属性  <input type="file" id="upload" name="upload" />
+//		                dataType: 'text',//返回值类型 一般设置为json
+//		                success: function (message)  //服务器成功响应处理函数
+//		                {
+//		                	console.log(message)
+//		                   alert("success")
+//		                },
+//		                error: function (data, status, e)//服务器响应失败处理函数
+//		                {
+//		                    alert("error");
+//		                }
+//		            });
+//		        return false;
+//		    }
+		
+		</script>
+		<script type="text/javascript">
+		function ajaxFileUpload(){
+			var formData = new FormData();
+			formData.append('file', $('#file')[0].files[0]);
+			$.ajax({
+			    url: 'http://106.14.248.127:8080/api/v1/upload',
+			    type: 'POST',
+			    cache: false,
+			    data: formData,
+			    processData: false,
+			    contentType: false,
+			    success : function(res){
+			    	alert("success")
+			    	if(res.code==0){
+			    		console.log(res.access_url);
+			    	}
+			    	
+			    },
+			    error : function(res){
+			    	alert("error")
+			    	console.log(res)
+			    }
+			});
+		}	
+		</script>
+	</body>
+</html>

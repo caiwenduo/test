@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;padding: 0;
+		}
+		html,body{
+			width: 100%;height: 100%;
+		}
+		div.pos{
+			width: 100%;height: 100%;background: #f5f5f5;position: fixed;top: 0;left: 0;display: none;
+		}
+		div.pos>div.loading_outer{
+			width: 100%;height: 100%;display: -webkit-box;display: -moz-box;display: -webkit-flex;display: flex;justify-content: center;
+			-webkit-justify-content: center;-webkit-box-pack: center;align-items: center;-webkit-align-items: center;-webkit-box-align: center;
+		}
+		div.pos>div.loading_outer>div.loading{
+			width: 2.8rem;height: 2.8rem;border-radius: 50%;border-top: 2px solid #FFA500;
+			border-left: 2px solid #008000;border-right: 2px solid #FF0000;border-bottom: 2px solid blueviolet;
+			-webkit-transition-property: -webkit-transform;-webkit-transition-duration: 1s;-moz-transition-property: -moz-transform;
+		    -moz-transition-duration: 1s;-webkit-animation: rotate 2s linear infinite;-moz-animation: rotate 2s linear infinite;
+		    -o-animation: rotate 2s linear infinite;animation: rotate 2s linear infinite;/*animation-direction: alternate-reverse;*/
+		}
+		@-webkit-keyframes rotate{
+			from{-webkit-transform: rotate(0deg)}
+		    to{-webkit-transform: rotate(360deg)}
+		}
+		@-moz-keyframes rotate{
+			from{-moz-transform: rotate(0deg)}
+		    to{-moz-transform: rotate(359deg)}
+		}
+		@-o-keyframes rotate{
+			from{-o-transform: rotate(0deg)}
+		    to{-o-transform: rotate(359deg)}
+		}
+		@keyframes rotate{
+			from{transform: rotate(0deg)}
+		    to{transform: rotate(359deg)}
+		}
+		div.pos>p{
+			text-align: center;font-size: 0.27rem;color: #444;width: 100%;position: fixed;top: calc(50% - 10px);left: 0;height: 20px;
+		}
+		img{
+			width: 100%;
+		}
+	</style>
+	<script type="text/javascript">
+		document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + "px";
+		window.addEventListener("resize",function(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + "px";
+		})
+	</script>
+</head>
+<body>
+	<div class="pos">
+		<div class="loading_outer">
+			<div class="loading"></div>
+		</div>
+		<p class="loading_code">进度0%</p>
+	</div>
+	<img class="img" src="http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170727/28786f9d8a664d9cb2400424144ca3de.jpg"/>
+	<img class="img" src="http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170809/c5478ff26ebd4687a9574482467e9927.jpg"/>
+	<img class="img" src="http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170809/bca3bd4b1d794323992dd7d4279a388a.jpg"/>
+	<img class="img" src="http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170809/c5478ff26ebd4687a9574482467e9927.jpg"/>
+	<img class="img" src="http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170809/bca3bd4b1d794323992dd7d4279a388a.jpg"/>
+	<img class="img" src="http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170727/251ad0fa27d643f8956496c4f48dca83.jpg"/>
+	<img class="img" src="http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170809/4c3e09653e9042bda15a9395c4ffef1a.jpg"/>
+	<img class="img" src="http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170809/00ed656711de46638745503d9283c3d0.jpg"/>
+	<img class="img" src="http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170809/d6a945f778044c33bd017523d5ae20ab.jpg"/>
+	<img class="img" src="http://yigongfangchan.oss-cn-shanghai.aliyuncs.com/20170809/4c3e09653e9042bda15a9395c4ffef1a.jpg"/>
+	<script type="text/javascript" src="../jquery-1.11.3.js"></script>
+	<script type="text/javascript">
+//		document.onreadystatechange = subSomething;//当页面加载状态改变的时候执行这个方法. 
+//      function subSomething(e) {
+//      	console.log(e)
+//          if(document.readyState == "complete"){ //当页面加载状态为完全结束时进入 
+//          //你要做的操作。 
+//          } 
+//      }
+		var j = 0;
+		$.each($('img'), function(i) {
+			if($(this).prop("complete")==false){
+				j = i;
+			}
+		});
+//		for(var i=0;i<$('img').length;i++){}
+		var num = j + 1;
+		if(j>0){
+			$("div.pos").show();
+		}
+		console.log( num );
+		var num_new = 0;
+		var bili = 0;
+		$('img').load(function(){
+			num_new ++;
+			bili = parseInt( num_new / num * 100 );
+			console.log(bili)
+			$("p.loading_code").html("进度"+bili+"%");
+			if(num_new == num){
+				var times = setTimeout(function(){
+					$("div.pos").hide();
+					clearTimeout(times);
+				},500)
+			}
+		})
+		
+	</script>
+</body>
+</html>

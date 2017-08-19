@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			div.outer{
+				width: 402px;height: 402px;border: 1px solid #00625A;margin: 0 auto;margin-top: 100px;position: relative;
+			}
+			div.outer>div.rota1{
+				border-top: 2px solid #00625A;width: 400px;height: 200px;margin-top: 100px;position: absolute;top: 0;left: 0;
+				border-right: 2px solid chartreuse;border-bottom: 2px solid salmon;border-left: 2px solid #00C1B3;border-radius: 50%;
+			 	-webkit-transition-property: -webkit-transform;-webkit-transition-duration: 1s;-moz-transition-property: -moz-transform;
+			    -moz-transition-duration: 1s;-webkit-animation: rotate 3s linear infinite;-moz-animation: rotate 3s linear infinite;
+			    -o-animation: rotate 3s linear infinite;animation: rotate 3s linear infinite;-webkit-border-radius: 50%;animation-direction: alternate-reverse;
+			}
+			div.outer>div.rota2{
+				border-top: 2px solid #00625A;width: 200px;height: 400px;margin-left: 100px;position: absolute;top: 0;left: 0;
+				border-right: 2px solid chartreuse;border-bottom: 2px solid salmon;border-left: 2px solid #00C1B3;border-radius: 50%;
+			 	-webkit-transition-property: -webkit-transform;-webkit-transition-duration: 1s;-moz-transition-property: -moz-transform;
+			    -moz-transition-duration: 1s;-webkit-animation: rotate 3s linear infinite;-moz-animation: rotate 3s linear infinite;
+			    -o-animation: rotate 3s linear infinite;animation: rotate 3s linear infinite;-webkit-border-radius: 50%;animation-direction: alternate-reverse;
+			}
+			@-webkit-keyframes rotate{
+				from{-webkit-transform: rotate(0deg)}
+			    to{-webkit-transform: rotate(360deg)}
+			}
+			@-moz-keyframes rotate{
+				from{-moz-transform: rotate(0deg)}
+			    to{-moz-transform: rotate(359deg)}
+			}
+			@-o-keyframes rotate{
+				from{-o-transform: rotate(0deg)}
+			    to{-o-transform: rotate(359deg)}
+			}
+			@keyframes rotate{
+				from{transform: rotate(0deg)}
+			    to{transform: rotate(359deg)}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="rota1"></div>
+			<div class="rota2"></div>
+		</div>
+	</body>
+</html>
