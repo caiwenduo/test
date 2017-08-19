@@ -61,6 +61,17 @@
 					}
 				}
 			});
+			$.each($("div.img_outer2>img"), function(i) {
+				if($(this).width()/$(this).parent().width() < $(this).height()/$(this).parent().height()){
+					if($(this).width()>$(this).parent().width()){
+						$(this).width( $(this).parent().width() );
+					}
+				}else if($(this).width()/$(this).parent().width() > $(this).height()/$(this).parent().height()){
+					if($(this).height()>$(this).parent().height()){
+						$(this).height( $(this).parent().height() );
+					}
+				}
+			});
 		</script>
 	</body>
 </html>
